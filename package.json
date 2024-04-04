@@ -2,6 +2,8 @@
   "name": "semaphore-extensions",
   "packageManager": "yarn@4.1.1",
   "scripts": {
+    "prettier": "prettier -c .",
+    "prettier:write": "prettier -w .",
     "postinstall": "husky"
   },
   "devDependencies": {
@@ -9,7 +11,8 @@
     "@commitlint/config-conventional": "^19.1.0",
     "commitizen": "^4.3.0",
     "cz-git": "^1.9.1",
-    "husky": "^9.0.11"
+    "husky": "^9.0.11",
+    "prettier": "^3.2.5"
   },
   "config": {
     "commitizen": {
