@@ -17,10 +17,10 @@
         "LICENSE",
         "README.md"
     ],
-    "repository": "https://github.com/semaphore-protocol/semaphore",
-    "homepage": "https://github.com/semaphore-protocol/semaphore/tree/main/packages/heyauthn",
+    "repository": "https://github.com/semaphore-protocol/extensions",
+    "homepage": "https://github.com/semaphore-protocol/extensions/tree/main/packages/heyauthn",
     "bugs": {
-        "url": "https://github.com/semaphore-protocol/semaphore.git/issues"
+        "url": "https://github.com/semaphore-protocol/extensions/issues"
     },
     "scripts": {
         "build": "rimraf dist && rollup -c rollup.config.ts --configPlugin typescript",
@@ -32,7 +32,7 @@
     "devDependencies": {
         "@rollup/plugin-typescript": "^11.1.6",
         "rimraf": "^5.0.5",
-        "rollup": "^4.12.0",
+        "rollup": "^4.14.0",
         "rollup-plugin-cleanup": "^3.2.1"
     },
     "dependencies": {

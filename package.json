@@ -1,5 +1,6 @@
 {
     "name": "semaphore-extensions",
+    "private": true,
     "packageManager": "yarn@4.1.1",
     "scripts": {
         "lint": "eslint . --ext .js,.ts,.tsx",
@@ -7,6 +8,11 @@
         "prettier:write": "prettier -w .",
         "postinstall": "husky"
     },
+    "workspaces": [
+        "apps/*",
+        "packages/*",
+        "packages/contracts/contracts"
+    ],
     "devDependencies": {
         "@commitlint/cli": "^19.2.1",
         "@commitlint/config-conventional": "^19.1.0",

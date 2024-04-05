@@ -9,13 +9,13 @@
     <a href="https://github.com/semaphore-protocol">
         <img src="https://img.shields.io/badge/project-Semaphore-blue.svg?style=flat-square">
     </a>
-    <a href="https://github.com/semaphore-protocol/semaphore/blob/main/LICENSE">
+    <a href="https://github.com/semaphore-protocol/extensions/blob/main/packages/heyauthn/LICENSE">
         <img alt="NPM license" src="https://img.shields.io/npm/l/%40semaphore-protocol%2Fheyauthn?style=flat-square">
     </a>
-    <a href="https://www.npmjs.com/package/@semaphore-protocol/heyauthn">
+    <a href="https://www.npmjs.com/package/@semaphore-extensions/heyauthn">
         <img alt="NPM version" src="https://img.shields.io/npm/v/@semaphore-protocol/heyauthn?style=flat-square" />
     </a>
-    <a href="https://npmjs.org/package/@semaphore-protocol/heyauthn">
+    <a href="https://npmjs.org/package/@semaphore-extensions/heyauthn">
         <img alt="Downloads" src="https://img.shields.io/npm/dm/@semaphore-protocol/heyauthn.svg?style=flat-square" />
     </a>
     <a href="https://js.semaphore.pse.dev/modules/_semaphore_protocol_heyauthn">
@@ -31,15 +31,15 @@
 
 <div align="center">
     <h4>
-        <a href="https://github.com/semaphore-protocol/semaphore/blob/main/CONTRIBUTING.md">
+        <a href="https://github.com/semaphore-protocol/extensions/blob/main/CONTRIBUTING.md">
             👥 Contributing
         </a>
         <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-        <a href="https://github.com/semaphore-protocol/semaphore/blob/main/CODE_OF_CONDUCT.md">
+        <a href="https://github.com/semaphore-protocol/extensions/blob/main/CODE_OF_CONDUCT.md">
             🤝 Code of conduct
         </a>
         <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-        <a href="https://github.com/semaphore-protocol/semaphore/contribute">
+        <a href="https://github.com/semaphore-protocol/extensions/contribute">
             🔎 Issues
         </a>
         <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
@@ -56,24 +56,24 @@
 
 ### npm or yarn
 
-Install the `@semaphore-protocol/heyauthn` package with npm:
+Install the `@semaphore-extensions/heyauthn` package with npm:
 
 ```bash
-npm i @semaphore-protocol/heyauthn
+npm i @semaphore-extensions/heyauthn
 ```
 
 or yarn:
 
 ```bash
-yarn add @semaphore-protocol/heyauthn
+yarn add @semaphore-extensions/heyauthn
 ```
 
 ## 📜 Usage
 
-For more information on the functions provided by `@semaphore-protocol/heyauthn`, please refer to the [TypeDoc documentation](https://js.semaphore.pse.dev/modules/_semaphore_protocol_heyauthn).
+For more information on the functions provided by `@semaphore-extensions/heyauthn`, please refer to the [TypeDoc documentation](https://js.semaphore.pse.dev/modules/_semaphore_protocol_heyauthn).
 
 ```typescript
-import { HeyAuthn } from "@semaphore-protocol/heyauthn"
+import { HeyAuthn } from "@semaphore-extensions/heyauthn"
 
 // STEP 1: Configure WebAuthn options.
 
