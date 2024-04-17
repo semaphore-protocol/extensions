@@ -25,7 +25,7 @@ export default function TreeDepth({ onChange, value = 20 }: TreeDepthParameters)
                 Tree depth:
             </Text>
 
-            <NumberInput size={"sm"} maxW="42px" min={16} max={32} value={value} onChange={(_v, v) => onChange(v)}>
+            <NumberInput size="sm" maxW="42px" min={16} max={32} value={value} onChange={(_v, v) => onChange(v)}>
                 <NumberInputField px={3} />
             </NumberInput>
 

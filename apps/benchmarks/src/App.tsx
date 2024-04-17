@@ -15,64 +15,6 @@ function App() {
     const [groupMembers, setGroupMembers] = useState<number>(100)
     const [times, setTimes] = useState<number[]>([])
 
-    const runFunctions = useCallback(
-        async function () {
-            const times = []
-
-            const [identity, time0] = await run(() => {
-                return new Identity()
-            })
-
-            times.push(time0)
-
-            setTimes(times)
-
-            let members = Array.from(Array(groupMembers - 1).keys())
-            members = [...members, identity.commitment]
-
-            const [group, time1] = await run(() => {
-                return new Group(1, treeDepth, members)
-            })
-
-            times.push(time1)
-
-            setTimes(times.slice())
-
-            const [proof, time2] = await run(async () => {
-                return await generateProof(identity, group, 1, 1)
-            })
-
-            times.push(time2)
-
-            setTimes(times.slice())
-
-            const [, time3] = await run(async () => {
-                return await verifyProof(proof, treeDepth)
-            })
-
-            times.push(time3)
-
-            setTimes(times.slice())
-
-            const [, time4] = await run(() => {
-                group.addMember(1)
-            })
-
-            times.push(time4)
-
-            setTimes(times.slice())
-
-            const [, time5] = await run(() => {
-                group.updateMember(0, 1)
-            })
-
-            times.push(time5)
-
-            setTimes(times.slice())
-        },
-        [treeDepth, groupMembers]
-    )
-
     async function run(callback: () => any): Promise<[any, number]> {
         const t0 = performance.now()
 
@@ -82,6 +24,53 @@ function App() {
 
         return [result, t1 - t0]
     }
+
+    const runFunctions = useCallback(async () => {
+        const timeValues = []
+
+        const [identity, time0] = await run(() => new Identity())
+
+        timeValues.push(time0)
+
+        setTimes(timeValues)
+
+        let members = Array.from(Array(groupMembers - 1).keys())
+        members = [...members, identity.commitment]
+
+        const [group, time1] = await run(() => new Group(1, treeDepth, members))
+
+        timeValues.push(time1)
+
+        setTimes(timeValues.slice())
+
+        const [proof, time2] = await run(async () => generateProof(identity, group, 1, 1))
+
+        timeValues.push(time2)
+
+        setTimes(timeValues.slice())
+
+        const [, time3] = await run(async () => verifyProof(proof, treeDepth))
+
+        timeValues.push(time3)
+
+        setTimes(timeValues.slice())
+
+        const [, time4] = await run(() => {
+            group.addMember(1)
+        })
+
+        timeValues.push(time4)
+
+        setTimes(timeValues.slice())
+
+        const [, time5] = await run(() => {
+            group.updateMember(0, 1)
+        })
+
+        timeValues.push(time5)
+
+        setTimes(timeValues.slice())
+    }, [treeDepth, groupMembers])
 
     return (
         <Flex flexDir="column" flex="1">
@@ -97,8 +86,8 @@ function App() {
 
                     <List spacing={3}>
                         {functions.map((f, i) => (
-                            <ListItem key={i}>
-                                <Flex justify={"space-between"}>
+                            <ListItem key={f}>
+                                <Flex justify="space-between">
                                     <Box>
                                         {times[i] && <ListIcon as={MdCheckCircle} color="green.500" />}
                                         <b>{f}</b>

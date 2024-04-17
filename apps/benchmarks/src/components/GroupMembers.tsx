@@ -22,7 +22,7 @@ export default function GroupMembers({ onChange, value = 100, max }: GroupMember
             </Text>
 
             <NumberInput
-                size={"sm"}
+                size="sm"
                 width="100%"
                 min={1}
                 max={max}
