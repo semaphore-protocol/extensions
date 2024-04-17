@@ -16,6 +16,7 @@
         "format": "yarn format:prettier",
         "format:write": "yarn format:prettier:write",
         "style": "yarn lint && yarn format",
+        "docs": "typedoc --cname extensionstypes.semaphore.pse.dev --githubPages true",
         "version:bump": "yarn workspace @semaphore-extensions/${0} version ${1} && yarn remove:stable-version-field ${0} && NO_HOOK=1 git commit -am \"chore(${0}): v${1}\" && git tag ${0}-v${1}",
         "version:publish": "yarn workspaces foreach -A --no-private npm publish --tolerate-republish --access public",
         "version:release": "changelogithub",
@@ -54,6 +55,7 @@
         "rimraf": "^5.0.5",
         "ts-jest": "^29.1.2",
         "ts-node": "^10.9.2",
+        "typedoc": "^0.25.13",
         "typescript": "^5.4.4"
     }
 }

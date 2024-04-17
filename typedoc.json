@@ -1,0 +1,5 @@
+{
+    "entryPoints": ["packages/*"],
+    "name": "Semaphore Extensions",
+    "entryPointStrategy": "packages"
+}

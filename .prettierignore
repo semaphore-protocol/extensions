@@ -11,6 +11,7 @@ coverage.json
 # production
 dist
 build
+/docs
 
 # github
 .github/ISSUE_TEMPLATE
