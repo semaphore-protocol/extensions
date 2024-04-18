@@ -3,8 +3,6 @@ import { readFileSync, writeFileSync } from "node:fs"
 async function main() {
     const projectDirectory = `packages/${process.argv[2]}`
 
-    console.log(process.argv)
-
     const filePath = `${projectDirectory}/package.json`
 
     const content = JSON.parse(readFileSync(filePath, "utf8"))
