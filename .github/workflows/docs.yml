@@ -9,13 +9,6 @@ jobs:
     gh-pages:
         runs-on: ubuntu-latest
 
-        permissions:
-            contents: write
-
-        environment:
-            name: github-pages
-            url: ${{ steps.deployment.outputs.page_url }}
-
         steps:
             - uses: actions/checkout@v4
 
@@ -37,5 +30,4 @@ jobs:
             - name: Deploy
               uses: JamesIves/github-pages-deploy-action@v4
               with:
-                  branch: gh-pages
                   folder: docs
