@@ -1,21 +1,17 @@
-import { readFileSync, readdirSync, writeFileSync } from "node:fs"
-
-const folderName = "packages"
+import { readFileSync, writeFileSync } from "node:fs"
 
 async function main() {
-    const filePaths = readdirSync(folderName, { withFileTypes: true })
-        .filter((file) => file.isDirectory())
-        .map((name) => `${folderName}/${name}/package.json`)
+    const projectDirectory = `packages/${process.argv[2]}`
 
-    for (const filePath of filePaths) {
-        const content = JSON.parse(readFileSync(filePath, "utf8"))
+    const filePath = `${projectDirectory}/package.json`
 
-        if (content.stableVersion) {
-            delete content.stableVersion
-        }
+    const content = JSON.parse(readFileSync(filePath, "utf8"))
 
-        writeFileSync(filePath, JSON.stringify(content, null, 4), "utf8")
+    if (content.stableVersion) {
+        delete content.stableVersion
     }
+
+    writeFileSync(filePath, JSON.stringify(content, null, 4), "utf8")
 }
 
 main()
