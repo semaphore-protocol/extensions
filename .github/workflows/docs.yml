@@ -31,10 +31,8 @@ jobs:
             - name: Generate doc website
               run: yarn docs
 
-            - name: Publish on Github Pages
-              uses: crazy-max/ghaction-github-pages@v4
+            - name: Deploy
+              uses: JamesIves/github-pages-deploy-action@v4
               with:
-                  target_branch: gh-pages
-                  build_dir: docs
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  branch: gh-pages
+                  folder: docs
