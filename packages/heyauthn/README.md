@@ -2,7 +2,7 @@
     <h1 align="center">
         HeyAuthn
     </h1>
-    <p align="center">A library to allow developers to create and manage Semaphore identities using WebAuthn.</p>
+    <p align="center">Library to allow developers to create and manage Semaphore identities using WebAuthn.</p>
 </p>
 
 <p align="center">
