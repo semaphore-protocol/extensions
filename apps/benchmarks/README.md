@@ -6,16 +6,16 @@
     <a href="https://github.com/semaphore-protocol" target="_blank">
         <img src="https://img.shields.io/badge/project-Semaphore-blue.svg?style=flat-square">
     </a>
-    <a href="https://github.com/semaphore-protocol/benchmarks/blob/main/LICENSE">
-        <img alt="Github license" src="https://img.shields.io/github/license/semaphore-protocol/benchmarks.svg?style=flat-square">
+    <a href="https://github.com/semaphore-protocol/extensions/blob/main/LICENSE">
+        <img alt="Github license" src="https://img.shields.io/github/license/semaphore-protocol/extensions">
     </a>
-    <a href="https://github.com/semaphore-protocol/benchmarks/actions?query=workflow%3deploy">
-        <img alt="GitHub Workflow test" src="https://img.shields.io/github/actions/workflow/status/semaphore-protocol/benchmarks/deploy.yml?branch=main&label=deploy&style=flat-square&logo=github">
+    <a href="https://github.com/semaphore-protocol/extensions/actions?query=workflow%3deploy">
+        <img alt="GitHub Workflow deploy" src="https://img.shields.io/github/actions/workflow/status/semaphore-protocol/benchmarks/deploy.yml?branch=main&label=deploy&style=flat-square&logo=github">
     </a>
     <a href="https://prettier.io/" target="_blank">
         <img alt="Code style prettier" src="https://img.shields.io/badge/code%20style-prettier-f8bc45?style=flat-square&logo=prettier">
     </a>
-    <img alt="Repository top language" src="https://img.shields.io/github/languages/top/semaphore-protocol/website?style=flat-square">
+    <img alt="Repository top language" src="https://img.shields.io/github/languages/top/semaphore-protocol/extensions?style=flat-square">
     <a href="https://www.gitpoap.io/gh/semaphore-protocol/benchmarks" target="_blank">
         <img src="https://public-api.gitpoap.io/v1/repo/semaphore-protocol/benchmarks/badge">
     </a>
@@ -23,15 +23,15 @@
 
 <div align="center">
     <h4>
-        <a href="./CONTRIBUTING.md">
+        <a href="../../CONTRIBUTING.md">
             👥 Contributing
         </a>
         <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-        <a href="./CODE_OF_CONDUCT.md">
+        <a href="../../CODE_OF_CONDUCT.md">
             🤝 Code of conduct
         </a>
         <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-        <a href="https://github.com/semaphore-protocol/benchmarks/issues/new/choose">
+        <a href="https://github.com/semaphore-protocol/extensions/issues/new/choose">
             🔎 Issues
         </a>
         <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
@@ -41,26 +41,18 @@
     </h4>
 </div>
 
-| This repository currently contains a simple web app to allow people to generate a Semaphore proof and measure the running time. |
-| ------------------------------------------------------------------------------------------------------------------------------- |
-
-## 🛠 Install
-
-Clone this repository:
-
-```bash
-git clone https://github.com/semaphore-protocol/benchmarks.git
-```
-
-And install the dependencies:
-
-```bash
-cd benchmarks && yarn
-```
+| Simple web app to allow people to generate a Semaphore proof and measure the running time. |
+| ------------------------------------------------------------------------------------------ |
 
 ## 📜 Usage
 
 ### Start
+
+To navigate inside the `benchmarks` folder, run:
+
+```bash
+cd benchmarks
+```
 
 To start the web app in a local server, run:
 
