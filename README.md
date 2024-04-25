@@ -12,10 +12,10 @@
     <a href="https://github.com/semaphore-protocol/extensions/blob/main/LICENSE">
         <img alt="Github license" src="https://img.shields.io/github/license/semaphore-protocol/extensions">
     </a>
-    <a href="https://github.com/privacy-scaling-explorations/zk-kit/actions?query=workflow%3Aproduction">
+    <a href="https://github.com/semaphore-protocol/extensions/actions?query=workflow%3Aproduction">
         <img alt="GitHub Workflow test" src="https://img.shields.io/github/actions/workflow/status/semaphore-protocol/extensions/production.yml?branch=main&style=flat-square&logo=github&label=test">
     </a>
-    <a href="https://coveralls.io/github/privacy-scaling-explorations/zk-kit">
+    <a href="https://coveralls.io/github/semaphore-protocol/extensions">
         <img alt="Coveralls" src="https://img.shields.io/coverallsCoverage/github/semaphore-protocol/extensions?style=flat-square&logo=coveralls&label=coverage%20(ts)">
     </a>
     <a href="https://eslint.org/">
