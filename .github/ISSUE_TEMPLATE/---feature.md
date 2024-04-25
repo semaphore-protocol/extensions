@@ -1,6 +1,6 @@
 ---
 name: "\U0001F680 Feature"
-about: Suggest an idea for ZK-Kit
+about: Suggest an idea for an extension
 title: ''
 labels: 'feature :rocket:'
 assignees: ''
