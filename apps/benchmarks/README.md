@@ -10,7 +10,7 @@
         <img alt="Github license" src="https://img.shields.io/github/license/semaphore-protocol/extensions">
     </a>
     <a href="https://github.com/semaphore-protocol/extensions/actions?query=workflow%3deploy">
-        <img alt="GitHub Workflow deploy" src="https://img.shields.io/github/actions/workflow/status/semaphore-protocol/benchmarks/deploy.yml?branch=main&label=deploy&style=flat-square&logo=github">
+        <img alt="GitHub deployments" src="https://img.shields.io/github/deployments/semaphore-protocol/extensions/production?logo=vercel&label=vercel">
     </a>
     <a href="https://prettier.io/" target="_blank">
         <img alt="Code style prettier" src="https://img.shields.io/badge/code%20style-prettier-f8bc45?style=flat-square&logo=prettier">
