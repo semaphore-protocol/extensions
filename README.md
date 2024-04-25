@@ -88,6 +88,27 @@
     <tbody>
 </table>
 
+## 🖥️ Apps
+
+<table>
+    <th>App</th>
+    <th>URL</th>
+    <tbody>
+        <tr>
+            <td>
+                <a href="https://github.com/semaphore-protocol/extensions/tree/main/apps/benchmarks">
+                    benchmarks
+                </a>
+            </td>
+            <td>
+                <a href="https://benchmarks.semaphore.pse.dev/">
+                    https://benchmarks.semaphore.pse.dev/
+                </a>
+            </td>
+        </tr>
+    <tbody>
+</table>
+
 ## 🛠 Install
 
 Clone this repository:
