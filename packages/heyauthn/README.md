@@ -10,15 +10,15 @@
         <img src="https://img.shields.io/badge/project-Semaphore-blue.svg?style=flat-square">
     </a>
     <a href="https://github.com/semaphore-protocol/extensions/blob/main/packages/heyauthn/LICENSE">
-        <img alt="NPM license" src="https://img.shields.io/npm/l/%40semaphore-protocol%2Fheyauthn?style=flat-square">
+        <img alt="NPM License" src="https://img.shields.io/npm/l/%40semaphore-extensions%2Fheyauthn">
     </a>
     <a href="https://www.npmjs.com/package/@semaphore-extensions/heyauthn">
-        <img alt="NPM version" src="https://img.shields.io/npm/v/@semaphore-protocol/heyauthn?style=flat-square" />
+        <img alt="NPM Version" src="https://img.shields.io/npm/v/%40semaphore-extensions%2Fheyauthn">
     </a>
     <a href="https://npmjs.org/package/@semaphore-extensions/heyauthn">
-        <img alt="Downloads" src="https://img.shields.io/npm/dm/@semaphore-protocol/heyauthn.svg?style=flat-square" />
+        <img alt="NPM Downloads" src="https://img.shields.io/npm/dm/%40semaphore-extensions%2Fheyauthn">
     </a>
-    <a href="https://js.semaphore.pse.dev/modules/_semaphore_protocol_heyauthn">
+    <a href="https://semaphore-protocol.github.io/extensions/classes/HeyAuthn.html">
         <img alt="Documentation typedoc" src="https://img.shields.io/badge/docs-typedoc-744C7C?style=flat-square">
     </a>
     <a href="https://eslint.org/">
