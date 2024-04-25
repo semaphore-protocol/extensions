@@ -15,10 +15,6 @@
     <a href="https://prettier.io/" target="_blank">
         <img alt="Code style prettier" src="https://img.shields.io/badge/code%20style-prettier-f8bc45?style=flat-square&logo=prettier">
     </a>
-    <img alt="Repository top language" src="https://img.shields.io/github/languages/top/semaphore-protocol/extensions?style=flat-square">
-    <a href="https://www.gitpoap.io/gh/semaphore-protocol/benchmarks" target="_blank">
-        <img src="https://public-api.gitpoap.io/v1/repo/semaphore-protocol/benchmarks/badge">
-    </a>
 </p>
 
 <div align="center">
