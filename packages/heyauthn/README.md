@@ -70,7 +70,7 @@ yarn add @semaphore-extensions/heyauthn
 
 ## 📜 Usage
 
-For more information on the functions provided by `@semaphore-extensions/heyauthn`, please refer to the [TypeDoc documentation](https://js.semaphore.pse.dev/modules/_semaphore_protocol_heyauthn).
+For more information on the functions provided by `@semaphore-extensions/heyauthn`, please refer to the [TypeDoc documentation](https://semaphore-protocol.github.io/extensions/classes/HeyAuthn.html).
 
 ```typescript
 import { HeyAuthn } from "@semaphore-extensions/heyauthn"
