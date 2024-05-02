@@ -7,7 +7,7 @@ export default function Navbar() {
             <Link href="https://semaphore.pse.dev/" isExternal>
                 <Image src="semaphore-logo.svg" htmlWidth={150} />
             </Link>
-            <Link href="https://github.com/semaphore-protocol/benchmarks" isExternal>
+            <Link href="https://github.com/semaphore-protocol/extensions/tree/main/apps/benchmarks" isExternal>
                 <IconButton
                     variant="unstyled"
                     aria-label="Github repository"
