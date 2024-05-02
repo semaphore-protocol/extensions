@@ -153,7 +153,7 @@ function App() {
                         </List>
                     </Flex>
                     <Flex flexDir="column" gap={4} width="300px">
-                        <Heading as="h3" size="lg">
+                        <Heading as="h3" size="lg"  mb="12">
                             Semaphore v4
                         </Heading>
 
