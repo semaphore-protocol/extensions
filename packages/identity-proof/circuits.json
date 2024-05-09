@@ -1,0 +1,7 @@
+{
+    "identity-proof": {
+        "file": "identity-proof",
+        "template": "IdentityProof",
+        "pubs": ["scope"]
+    }
+}
