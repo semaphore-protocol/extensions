@@ -48,6 +48,9 @@ jobs:
             - name: Test libraries
               run: yarn test:libraries
 
+            - name: Test circuits
+              run: yarn test:circuits
+
             - name: Coveralls
               uses: coverallsapp/github-action@v2.2.3
               with:

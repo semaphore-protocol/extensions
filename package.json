@@ -5,9 +5,10 @@
     "scripts": {
         "build": "yarn build:libraries",
         "build:libraries": "yarn workspaces foreach -A -t --no-private run build",
-        "test": "yarn test:libraries",
+        "test": "yarn test:libraries && yarn test:circuits",
         "test:libraries": "jest --coverage",
         "test:library": "jest packages/${0}",
+        "test:circuits": "yarn workspace @semaphore-extensions/identity-proof.circom test",
         "lint:eslint": "eslint . --ext .js,.ts,.tsx",
         "lint": "yarn lint:eslint",
         "lint:fix": "yarn lint:eslint --fix",

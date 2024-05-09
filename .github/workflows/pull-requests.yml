@@ -45,3 +45,6 @@ jobs:
 
             - name: Test libraries
               run: yarn test
+
+            - name: Test circuits
+              run: yarn test:circuits
