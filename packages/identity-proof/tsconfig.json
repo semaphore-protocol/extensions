@@ -1,8 +1,4 @@
 {
-    "compilerOptions": {
-        "target": "es2020",
-        "module": "commonjs",
-        "esModuleInterop": true
-    },
-    "include": ["tests/**/*"]
+    "extends": "../../tsconfig.json",
+    "include": ["src", "tests", "rollup.config.ts"]
 }

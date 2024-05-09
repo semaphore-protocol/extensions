@@ -1,7 +1,7 @@
 import fs from "fs"
 import type { Config } from "jest"
 
-const exclude = ["circuits", "contracts"]
+const exclude = ["identity-proof.circom"]
 
 const projects: any = fs
     .readdirSync("./packages", { withFileTypes: true })

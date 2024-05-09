@@ -29,6 +29,7 @@ describe("identity-proof", () => {
         })
     })
 
+    // eslint-disable-next-line jest/expect-expect
     it("Should compute the commitment correctly", async () => {
         await circuit.expectPass(INPUT, OUTPUT)
     })
