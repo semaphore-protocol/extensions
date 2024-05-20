@@ -45,6 +45,7 @@
         "rollup-plugin-cleanup": "^3.2.1"
     },
     "dependencies": {
+        "@zk-kit/artifacts": "^1.3.2",
         "@zk-kit/eddsa-poseidon": "1.0.0-beta",
         "@zk-kit/utils": "1.0.0-beta.4",
         "ethers": "^6.12.0",

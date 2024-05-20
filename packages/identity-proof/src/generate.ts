@@ -1,5 +1,6 @@
 import { deriveSecretScalar } from "@zk-kit/eddsa-poseidon"
-import { SnarkArtifacts, maybeGetEdDSASnarkArtifacts, packGroth16Proof } from "@zk-kit/utils"
+import { SnarkArtifacts, packGroth16Proof } from "@zk-kit/utils"
+import { Project, maybeGetSnarkArtifacts } from "@zk-kit/artifacts"
 import type { BigNumberish } from "ethers"
 import { NumericString, groth16 } from "snarkjs"
 import hash from "./hash"
@@ -30,7 +31,7 @@ export default async function generate(
 
     // allow user to override our artifacts
     // otherwise they'll be downloaded if not already in local tmp folder
-    snarkArtifacts ??= await maybeGetEdDSASnarkArtifacts()
+    snarkArtifacts ??= await maybeGetSnarkArtifacts(Project.SEMAPHORE_IDENTITY)
     const { wasm, zkey } = snarkArtifacts
     const secretScalar = deriveSecretScalar(privateKey)
 
