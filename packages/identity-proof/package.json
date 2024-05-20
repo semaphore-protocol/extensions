@@ -1,6 +1,6 @@
 {
     "name": "@semaphore-extensions/identity-proof",
-    "version": "1.0.0-beta.1",
+    "version": "1.0.0-beta.2",
     "description": "A library to prove the ownership of a Semaphore identity without revealing the private key.",
     "type": "module",
     "license": "MIT",
