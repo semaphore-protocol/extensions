@@ -21,7 +21,7 @@ const projects: any = fs
 const config: Config = {
     projects,
     verbose: true,
-    coverageDirectory: "./coverage/libraries",
+    coverageDirectory: "./coverage",
     coverageThreshold: {
         global: {
             branches: 90,
