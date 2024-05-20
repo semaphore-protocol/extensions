@@ -221,30 +221,14 @@ yarn docs
 
 The output will be placed on the `docs` folder.
 
-## Releases
+### Releases
 
-Steps:
-
-1. Bump a new version with:
+Bump a new version for your package with:
 
 ```bash
-yarn version:bump <version>
-# e.g. yarn version:bump 2.0.0
+yarn version:bump <package-name> <version>
+# e.g. yarn version:bump utils 2.0.0
 ```
 
-This step creates a commit and a git tag.
-
-2. Push the changes to main:
-
-```bash
-git push origin main
-```
-
-3. Push the new git tag:
-
-```bash
-git push origin <version>
-# e.g. git push origin 2.0.0
-```
-
-After pushing the new git tag, a workflow will be triggered and will publish the Bandada packages on [npm](https://www.npmjs.com/) and release a new version on Github with its changelogs automatically.
+It will create a commit and a git tag that you'll need to push on the main branch. A workflow will be triggered and will
+publish your package on [npm](https://www.npmjs.com/) and release a new version on Github with its changelogs automatically.
