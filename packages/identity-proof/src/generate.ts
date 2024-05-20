@@ -1,6 +1,6 @@
 import { deriveSecretScalar } from "@zk-kit/eddsa-poseidon"
-import { SnarkArtifacts, packGroth16Proof } from "@zk-kit/utils"
-import { Project, maybeGetSnarkArtifacts } from "@zk-kit/artifacts"
+import { packGroth16Proof } from "@zk-kit/utils"
+import { Project, type SnarkArtifacts, maybeGetSnarkArtifacts } from "@zk-kit/artifacts"
 import type { BigNumberish } from "ethers"
 import { NumericString, groth16 } from "snarkjs"
 import hash from "./hash"
