@@ -85,6 +85,25 @@
                 </a>
             </td>
         </tr>
+        <tr>
+            <td>
+                <a href="https://github.com/semaphore-protocol/extensions/tree/main/packages/identity-proof.circom">
+                    @semaphore-extensions/identity-proof.circom
+                </a>
+            </td>
+            <td>
+                <!-- NPM version -->
+                <a href="https://www.npmjs.com/package/@semaphore-extensions/identity-proof.circom">
+                    <img alt="NPM Version" src="https://img.shields.io/npm/v/%40semaphore-extensions%2Fidentity-proof.circom">
+                </a>
+            </td>
+            <td>
+                <!-- Downloads -->
+                <a href="https://npmjs.org/package/@semaphore-extensions/identity-proof.circom">
+                    <img alt="NPM Downloads" src="https://img.shields.io/npm/dm/%40semaphore-extensions%2Fidentity-proof.circom">
+                </a>
+            </td>
+        </tr>
     <tbody>
 </table>
 
