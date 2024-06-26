@@ -84,7 +84,7 @@ function App() {
 
         setV4Times(timeValues)
 
-        let members = Array.from(Array(v3GroupMembers - 1).keys()).map((m) => BigInt(m) + 1n)
+        let members = Array.from(Array(v4GroupMembers - 1).keys()).map((m) => BigInt(m) + 1n)
         members = [...members, identity.commitment]
 
         const [group, time1] = await run(() => new V4.Group(members))
