@@ -7,7 +7,7 @@ interface ISemaphoreVoting {
     error Semaphore__MerkleTreeDepthIsNotSupported();
     error Semaphore__PollHasAlreadyBeenStarted();
     error Semaphore__PollIsNotOngoing();
-    error Semaphore__YouAreUsingTheSameNillifierTwice();
+    error Semaphore__YouAreUsingTheSameNullifierTwice();
 
     enum PollState {
         Created,
@@ -24,6 +24,7 @@ interface ISemaphoreVoting {
         address coordinator;
         PollState state;
         mapping(uint256 => bool) nullifierHashes;
+        uint256 groupId;
     }
 
     /// @dev Emitted when a new poll is created.

@@ -1,13 +1,13 @@
-//SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.23;
 
 import {ISemaphore} from "@semaphore-protocol/contracts/interfaces/ISemaphore.sol";
-import {SemaphoreGroups} from "@semaphore-protocol/contracts/base/SemaphoreGroups.sol";
 import {ISemaphoreVoting} from "../interfaces/ISemaphoreVoting.sol";
+import {SemaphoreGroups} from "@semaphore-protocol/contracts/base/SemaphoreGroups.sol";
 
-///@title Semaphore Voting contract.
-///@notice It allows users to vote anonymously in a poll.
-///@dev The following code allows you to create polls, add voters and allow them to vote anonymously.
+/// @title Semaphore Voting contract.
+/// @notice It allows users to vote anonymously in a poll.
+/// @dev The following code allows you to create polls, add voters and allow them to vote anonymously.
 contract SemaphoreVoting is ISemaphoreVoting, SemaphoreGroups {
     ISemaphore public group;
 
@@ -31,14 +31,11 @@ contract SemaphoreVoting is ISemaphoreVoting, SemaphoreGroups {
     }
 
     /// @dev See {ISemaphoreVoting-createPoll}.
-    function createPoll(uint256 pollId, address coordinator, uint256 merkleTreeDepth) public override {
-        if (merkleTreeDepth < 16 || merkleTreeDepth > 32) {
-            revert Semaphore__MerkleTreeDepthIsNotSupported();
-        }
-
-        group.createGroup(pollId, merkleTreeDepth);
+    function createPoll(uint256 pollId, address coordinator) public {
+        uint256 groupId = group.createGroup();
 
         polls[pollId].coordinator = coordinator;
+        polls[pollId].groupId = groupId;
 
         emit PollCreated(pollId, coordinator);
     }
@@ -49,10 +46,10 @@ contract SemaphoreVoting is ISemaphoreVoting, SemaphoreGroups {
             revert Semaphore__PollHasAlreadyBeenStarted();
         }
 
-        group.addMember(pollId, identityCommitment);
+        group.addMember(polls[pollId].groupId, identityCommitment);
     }
 
-    /// @dev See {ISemaphoreVoting-addVoter}.
+    /// @dev See {ISemaphoreVoting-startPoll}.
     function startPoll(uint256 pollId, uint256 encryptionKey) public override onlyCoordinator(pollId) {
         if (polls[pollId].state != PollState.Created) {
             revert Semaphore__PollHasAlreadyBeenStarted();
@@ -70,20 +67,28 @@ contract SemaphoreVoting is ISemaphoreVoting, SemaphoreGroups {
         }
 
         if (polls[pollId].nullifierHashes[nullifierHash]) {
-            revert Semaphore__YouAreUsingTheSameNillifierTwice();
+            revert Semaphore__YouAreUsingTheSameNullifierTwice();
         }
 
-        uint256 merkleTreeDepth = group.getMerkleTreeDepth(pollId);
-        uint256 merkleTreeRoot = group.getMerkleTreeRoot(pollId);
+        uint256 merkleTreeRoot = getMerkleTreeRoot(polls[pollId].groupId);
 
-        group.verifyProof(merkleTreeRoot, nullifierHash, vote, pollId, proof, merkleTreeDepth);
+        SemaphoreProof memory semaphoreProof = SemaphoreProof({
+            merkleTreeDepth: 32,
+            merkleTreeRoot: merkleTreeRoot,
+            nullifier: nullifierHash,
+            message: vote,
+            scope: pollId,
+            points: proof
+        });
+
+        group.verifyProof(polls[pollId].groupId, semaphoreProof);
 
         polls[pollId].nullifierHashes[nullifierHash] = true;
 
         emit VoteAdded(pollId, vote);
     }
 
-    /// @dev See {ISemaphoreVoting-publishDecryptionKey}.
+    /// @dev See {ISemaphoreVoting-endPoll}.
     function endPoll(uint256 pollId, uint256 decryptionKey) public override onlyCoordinator(pollId) {
         if (polls[pollId].state != PollState.Ongoing) {
             revert Semaphore__PollIsNotOngoing();
@@ -93,4 +98,6 @@ contract SemaphoreVoting is ISemaphoreVoting, SemaphoreGroups {
 
         emit PollEnded(pollId, msg.sender, decryptionKey);
     }
+
+    function createPoll(uint256 pollId, address coordinator, uint256 merkleTreeDepth) external override {}
 }
