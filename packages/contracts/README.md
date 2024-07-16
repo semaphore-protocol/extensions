@@ -85,8 +85,6 @@ Or a test gas report:
 yarn test:report-gas
 ```
 
-### Deploy contracts
-
 1. Copy the `.env.example` file as `.env`.
 
 ```bash
@@ -97,6 +95,14 @@ cp .env.example .env
 
 > **Note**  
 > You should at least set a valid Ethereum URL (e.g. Infura) and a private key with some ethers.
+
+### Deploy contracts
+
+Deploy the `Semaphore.sol` contract without any parameter:
+
+```bash
+yarn deploy
+```
 
 > **Warning**  
 > The group id is a number!

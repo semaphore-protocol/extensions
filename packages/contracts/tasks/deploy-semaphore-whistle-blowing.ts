@@ -1,6 +1,6 @@
 import { task, types } from "hardhat/config"
 
-task("deploy-semaphore-whistleblowing-v4", "Deploy a  Semaphore whistleblowing contract")
+task("deploy:semaphore-whistleblowing", "Deploy a  Semaphore whistleblowing contract")
     .addOptionalParam("semaphore", "Semaphore contract address", undefined, types.string)
     .addOptionalParam("logs", "Print the logs", true, types.boolean)
     .setAction(async ({ logs, semaphore: semaphoreAddress }, { ethers, run }) => {
