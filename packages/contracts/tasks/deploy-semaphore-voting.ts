@@ -14,13 +14,13 @@ task("deploy:semaphore-voting", "Deploy a  Semaphore Voting contract")
 
         const SempahoreVotingFactory = await ethers.getContractFactory("SemaphoreVoting")
 
-        const semaphoreVotingContract = await SempahoreVotingFactory.deploy(semaphoreAddress)
+        const SemaphoreVotingContract = await SempahoreVotingFactory.deploy(semaphoreAddress)
 
         if (logs) {
             console.info(
-                `Semaphore Voting contract has been deployed to: ${await semaphoreVotingContract.getAddress()}`
+                `Semaphore Voting contract has been deployed to: ${await SemaphoreVotingContract.getAddress()}`
             )
         }
 
-        return semaphoreVotingContract
+        return SemaphoreVotingContract
     })

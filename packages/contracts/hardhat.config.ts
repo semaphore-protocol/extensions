@@ -4,7 +4,7 @@ import { getHardhatNetworks } from "@semaphore-protocol/utils"
 import "dotenv/config"
 import { HardhatUserConfig } from "hardhat/config"
 import "./tasks/deploy-semaphore-voting"
-import "./tasks/deploy-semaphore-whistleblowing"
+import "./tasks/deploy-semaphore-whistle-blowing"
 
 const config: HardhatUserConfig = {
     solidity: "0.8.23",
