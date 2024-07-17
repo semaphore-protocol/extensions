@@ -1,6 +1,6 @@
 {
     "name": "@semaphore-extensions/contracts",
-    "version": "4.0.0-beta.16",
+    "version": "0.1.0",
     "description": "Semaphore extensions Contracts to manage anonymous voting and whistleblowing",
     "license": "MIT",
     "files": [
@@ -14,6 +14,5 @@
     },
     "dependencies": {
         "@semaphore-protocol/contracts": "^4.0.0-beta.16"
-    },
-    "packageManager": "yarn@4.1.0"
+    }
 }

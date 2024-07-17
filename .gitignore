@@ -27,6 +27,7 @@ coverage.json
 
 # Dependency directories
 node_modules/
+.env
 
 # TypeScript cache
 *.tsbuildinfo
@@ -58,6 +59,15 @@ build
 dist
 /docs
 
+# Hardhat files
+**/cache
+**/artifacts
+
+# TypeChain files
+**/typechain
+**/typechain-types
+
+
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 
@@ -69,3 +79,4 @@ dist
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+

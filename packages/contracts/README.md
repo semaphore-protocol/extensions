@@ -9,6 +9,16 @@
     <a href="https://github.com/semaphore-protocol">
         <img src="https://img.shields.io/badge/project-Semaphore-blue.svg?style=flat-square">
     </a>
+    <a href="https://github.com/semaphore-protocol/extensions/blob/main/packages/contracts/contracts/LICENSE">
+        <img alt="NPM license" src="https://img.shields.io/npm/l/%40semaphore-extensions%2Fcontracts?style=flat-square">
+    </a>
+    <a href="https://www.npmjs.com/package/@semaphore-extensions/contracts">
+        <img alt="NPM version" src="https://img.shields.io/npm/v/@semaphore-extensions/contracts?style=flat-square" />
+    </a>
+    <a href="https://npmjs.org/package/@semaphore-extensions/contracts">
+        <img alt="Downloads" src="https://img.shields.io/npm/dm/@semaphore-extensions/contracts.svg?style=flat-square" />
+    </a>
+</p>
 <div align="center">
     <h4>
         <a href="https://github.com/semaphore-protocol/extensions/blob/main/CONTRIBUTING.md">
@@ -78,7 +88,7 @@ cp .env.example .env
 
 ### Deploy contracts
 
-Deploy the `Semaphore.sol` contract without any parameter:
+Deploy the `SemaphoreVoting.sol` and `SemaphoreWhistleblowing.sol` contract without any parameter:
 
 ```bash
 yarn deploy
@@ -86,23 +96,3 @@ yarn deploy
 
 > **Warning**  
 > The group id is a number!
-
-### Code quality and formatting
-
-Run [ESLint](https://eslint.org/) and [solhint](https://github.com/protofire/solhint) to analyze the code and catch bugs:
-
-```bash
-yarn lint
-```
-
-Run [Prettier](https://prettier.io/) to check formatting rules:
-
-```bash
-yarn prettier
-```
-
-Or to automatically format the code:
-
-```bash
-yarn prettier:write
-```

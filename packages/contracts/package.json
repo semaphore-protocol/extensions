@@ -1,22 +1,6 @@
 {
     "name": "extension-contracts",
-    "version": "4.0.0-beta.16",
     "description": "Semaphore extensions Contracts to manage anonymous voting and whistleblowing",
-    "files": [
-        "files.tgz",
-        "contracts/",
-        "tasks/",
-        "test/",
-        ".editorconfig",
-        ".env.example",
-        ".eslintignore",
-        ".eslintrc.json",
-        ".prettierignore",
-        ".prettierrc.json",
-        "hardhat.config.ts",
-        "tsconfig.json",
-        "README.md"
-    ],
     "publishConfig": {
         "access": "public"
     },
