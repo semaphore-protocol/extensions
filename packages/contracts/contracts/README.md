@@ -5,30 +5,6 @@
     <p align="center">Extension contracts to manage Voting and whistleBlowing</p>
 </p>
 
-<p align="center">
-    <a href="https://github.com/semaphore-protocol">
-        <img src="https://img.shields.io/badge/project-Semaphore-blue.svg?style=flat-square">
-    </a>
-    <a href="https://github.com/semaphore-protocol/extensions/blob/main/packages/heyauthn/LICENSE">
-        <img alt="NPM License" src="https://img.shields.io/npm/l/%40semaphore-extensions%2fcontracts">
-    </a>
-    <a href="https://www.npmjs.com/package/@semaphore-extensions/contracts">
-        <img alt="NPM Version" src="https://img.shields.io/npm/v/%40semaphore-extensions%2fcontracts">
-    </a>
-    <a href="https://npmjs.org/package/@semaphore-extensions/contracts">
-        <img alt="NPM Downloads" src="https://img.shields.io/npm/dm/%40semaphore-extensions%2fcontracts">
-    </a>
-    <a href="https://semaphore-protocol.github.io/extensions/classes/HeyAuthn.html">
-        <img alt="Documentation typedoc" src="https://img.shields.io/badge/docs-typedoc-744C7C?style=flat-square">
-    </a>
-    <a href="https://eslint.org/">
-        <img alt="Linter eslint" src="https://img.shields.io/badge/linter-eslint-8080f2?style=flat-square&logo=eslint" />
-    </a>
-    <a href="https://prettier.io/">
-        <img alt="Code style prettier" src="https://img.shields.io/badge/code%20style-prettier-f8bc45?style=flat-square&logo=prettier" />
-    </a>
-</p>
-
 <div align="center">
     <h4>
         <a href="https://github.com/semaphore-protocol/extensions/blob/main/CONTRIBUTING.md">
