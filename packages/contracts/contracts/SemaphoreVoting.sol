@@ -2,7 +2,7 @@
 pragma solidity ^0.8.23;
 
 import {ISemaphore} from "@semaphore-protocol/contracts/interfaces/ISemaphore.sol";
-import {ISemaphoreVoting} from "../interfaces/ISemaphoreVoting.sol";
+import {ISemaphoreVoting} from "./interfaces/ISemaphoreVoting.sol";
 import {SemaphoreGroups} from "@semaphore-protocol/contracts/base/SemaphoreGroups.sol";
 
 /// @title Semaphore Voting contract.
@@ -31,7 +31,7 @@ contract SemaphoreVoting is ISemaphoreVoting, SemaphoreGroups {
     }
 
     /// @dev See {ISemaphoreVoting-createPoll}.
-    function createPoll(uint256 pollId, address coordinator) public {
+    function createPoll(uint256 pollId, address coordinator) public override {
         uint256 groupId = group.createGroup();
 
         polls[pollId].coordinator = coordinator;
@@ -72,7 +72,7 @@ contract SemaphoreVoting is ISemaphoreVoting, SemaphoreGroups {
 
         uint256 merkleTreeRoot = getMerkleTreeRoot(polls[pollId].groupId);
 
-        SemaphoreProof memory semaphoreProof = SemaphoreProof({
+        ISemaphore.SemaphoreProof memory semaphoreProof = ISemaphore.SemaphoreProof({
             merkleTreeDepth: 32,
             merkleTreeRoot: merkleTreeRoot,
             nullifier: nullifierHash,
@@ -99,5 +99,5 @@ contract SemaphoreVoting is ISemaphoreVoting, SemaphoreGroups {
         emit PollEnded(pollId, msg.sender, decryptionKey);
     }
 
-    function createPoll(uint256 pollId, address coordinator, uint256 merkleTreeDepth) external override {}
+    function createPoll(uint256 pollId, address coordinator, uint256 merkleTreeDepth) external {}
 }

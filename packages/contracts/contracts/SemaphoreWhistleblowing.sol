@@ -1,17 +1,16 @@
-//SPDX-License-Identifier: MIT
-pragma solidity ^0.8.23;
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.23;
 
-import "@semaphore-protocol/contracts/base/SemaphoreGroups.sol";
-import "@semaphore-protocol/contracts/interfaces/ISemaphoreGroups.sol";
-import "../interfaces/ISemaphoreWhistleblowing.sol";
+import {ISemaphore} from "@semaphore-protocol/contracts/interfaces/ISemaphore.sol";
+import {ISemaphoreVerifier} from "@semaphore-protocol/contracts/interfaces/ISemaphoreVerifier.sol";
+import {ISemaphoreWhistleblowing} from "./interfaces/ISemaphoreWhistleblowing.sol";
+import {SemaphoreGroups} from "@semaphore-protocol/contracts/base/SemaphoreGroups.sol";
 
-/// @title Semaphore whistleblowing contract.
-/// @notice It allows users to leak information anonymously .
-/// @dev The following code allows you to create entities for whistleblowers (e.g. non-profit
-/// organization, newspaper) and allow them to leak anonymously.
+/// @title SemaphoreWhistleblowing
+/// @dev This contract uses the Semaphore base contracts to allow whistleblowers to leak information anonymously
 /// Leaks can be IPFS hashes, permanent links or other kinds of references.
 contract SemaphoreWhistleblowing is ISemaphoreWhistleblowing, SemaphoreGroups {
-    ISemaphoreGroups public group;
+    ISemaphore public group;
 
     /// @dev Gets an entity id and return its editor address.
     mapping(uint256 => address) private entities;
@@ -28,25 +27,19 @@ contract SemaphoreWhistleblowing is ISemaphoreWhistleblowing, SemaphoreGroups {
 
     /// @dev Initializes the Semaphore group used to verify the user's ZK proofs.
     /// @param _group: Semaphore group address.
-    constructor(ISemaphoreGroups _group) {
+    constructor(ISemaphore _group) {
         group = _group;
     }
 
     /// @dev See {ISemaphoreWhistleblowing-createEntity}.
-    function createEntity(uint256 entityId, address editor, uint256 merkleTreeDepth) public override {
-        if (merkleTreeDepth < 16 || merkleTreeDepth > 32) {
-            revert Semaphore__MerkleTreeDepthIsNotSupported();
-        }
-
-        group.createGroup(entityId, merkleTreeDepth);
-
+    function createEntity(uint256 entityId, address editor) external override {
+        uint256 groupId = group.createGroup(editor);
         entities[entityId] = editor;
-
         emit EntityCreated(entityId, editor);
     }
 
     /// @dev See {ISemaphoreWhistleblowing-addWhistleblower}.
-    function addWhistleblower(uint256 entityId, uint256 identityCommitment) public override onlyEditor(entityId) {
+    function addWhistleblower(uint256 entityId, uint256 identityCommitment) external override onlyEditor(entityId) {
         group.addMember(entityId, identityCommitment);
     }
 
@@ -54,10 +47,9 @@ contract SemaphoreWhistleblowing is ISemaphoreWhistleblowing, SemaphoreGroups {
     function removeWhistleblower(
         uint256 entityId,
         uint256 identityCommitment,
-        uint256[] calldata proofSiblings,
-        uint8[] calldata proofPathIndices
-    ) public override onlyEditor(entityId) {
-        group.removeMember(entityId, identityCommitment, proofSiblings, proofPathIndices);
+        uint256[] calldata proofSiblings
+    ) external onlyEditor(entityId) {
+        group.removeMember(entityId, identityCommitment, proofSiblings);
     }
 
     /// @dev See {ISemaphoreWhistleblowing-publishLeak}.
@@ -66,12 +58,62 @@ contract SemaphoreWhistleblowing is ISemaphoreWhistleblowing, SemaphoreGroups {
         uint256 nullifierHash,
         uint256 entityId,
         uint256[8] calldata proof
-    ) public override {
-        uint256 merkleTreeDepth = group.getMerkleTreeDepth(entityId);
-        uint256 merkleTreeRoot = group.getMerkleTreeRoot(entityId);
+    ) external override {
+        uint256 merkleTreeRoot = getMerkleTreeRoot(entityId);
 
-        group.verifyProof(merkleTreeRoot, nullifierHash, leak, entityId, proof, merkleTreeDepth);
+        ISemaphore.SemaphoreProof memory semaphoreProof = ISemaphore.SemaphoreProof({
+            merkleTreeDepth: 32,
+            merkleTreeRoot: merkleTreeRoot,
+            nullifier: nullifierHash,
+            message: leak,
+            scope: entityId,
+            points: proof
+        });
+
+        group.verifyProof(entityId, semaphoreProof);
 
         emit LeakPublished(entityId, leak);
     }
+
+    function groupCounter() external view override returns (uint256) {}
+
+    function createGroup() external override returns (uint256) {}
+
+    function createGroup(address admin) external override returns (uint256) {}
+
+    function createGroup(address admin, uint256 merkleTreeDuration) external override returns (uint256) {}
+
+    function updateGroupAdmin(uint256 groupId, address newAdmin) external override {}
+
+    function acceptGroupAdmin(uint256 groupId) external override {}
+
+    function updateGroupMerkleTreeDuration(uint256 groupId, uint256 newMerkleTreeDuration) external override {}
+
+    function addMember(uint256 groupId, uint256 identityCommitment) external override {}
+
+    function addMembers(uint256 groupId, uint256[] calldata identityCommitments) external override {}
+
+    function updateMember(
+        uint256 groupId,
+        uint256 oldIdentityCommitment,
+        uint256 newIdentityCommitment,
+        uint256[] calldata merkleProofSiblings
+    ) external override {}
+
+    function removeMember(
+        uint256 groupId,
+        uint256 identityCommitment,
+        uint256[] calldata merkleProofSiblings
+    ) external override {}
+
+    function validateProof(uint256 groupId, SemaphoreProof calldata proof) external override {}
+
+    function verifyProof(uint256 groupId, SemaphoreProof calldata proof) external view override returns (bool) {}
+
+    function removeWhistleblower(
+        uint256 entityId,
+        uint256 identityCommitment,
+        uint256[] calldata proofSiblings,
+        uint8[] calldata proofPathIndices
+    ) external override {}
 }
