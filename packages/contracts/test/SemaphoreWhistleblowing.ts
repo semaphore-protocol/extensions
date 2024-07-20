@@ -4,6 +4,7 @@ import { loadFixture } from "@nomicfoundation/hardhat-toolbox/network-helpers"
 import { Group, Identity, generateProof } from "@semaphore-protocol/core"
 import { Signer } from "ethers"
 import { BigNumber } from "@ethersproject/bignumber"
+// @ts-ignore
 import { SemaphoreWhistleblowing } from "../typechain-types"
 
 describe("SemaphoreWhistleblowing", () => {
