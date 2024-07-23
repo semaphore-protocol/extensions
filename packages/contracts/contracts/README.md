@@ -2,7 +2,7 @@
     <h1 align="center">
         Semaphore Extension Contracts
     </h1>
-    <p align="center">Extension contracts to manage Voting and whistleBlowing</p>
+    <p align="center">Solidity contracts to enhance Semaphore with extra features and customization</p>
 </p>
 <p align="center">
     <a href="https://github.com/semaphore-protocol">
@@ -48,7 +48,7 @@ Install the `@semaphore-extension/contracts` package with npm:
 npm i @semaphore-extension/contracts
 ```
 
-or yarn: <br>
+or yarn:
 
 ```bash
 yarn add @semaphore-extension/contracts
