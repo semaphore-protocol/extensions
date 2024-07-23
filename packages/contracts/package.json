@@ -1,6 +1,6 @@
 {
     "name": "extension-contracts",
-    "description": "Semaphore extensions Contracts to manage anonymous voting and whistleblowing",
+    "description": "Solidity contracts to enhance Semaphore with extra features and customization",
     "publishConfig": {
         "access": "public"
     },
@@ -8,17 +8,11 @@
         "dev": "hardhat node & yarn deploy --network localhost",
         "compile": "hardhat compile",
         "deploy": "yarn deploy:semaphore-voting && yarn deploy:semaphore-whistleblowing",
-        "deploy:semaphore-voting": "yarn compile && hardhat deploy:semaphore-voting",
-        "deploy:semaphore-whistleblowing": "hardhat compile && hardhat deploy:semaphore-whistleblowing",
+        "deploy:semaphore-voting": "hardhat deploy:semaphore-voting",
+        "deploy:semaphore-whistleblowing": "hardhat deploy:semaphore-whistleblowing",
         "verify": "hardhat verify",
         "test": "hardhat test",
-        "test:report-gas": "REPORT_GAS=true hardhat test",
-        "test:coverage": "hardhat coverage",
-        "typechain": "hardhat typechain",
-        "prepublish": "tar -czf files.tgz .gitignore .yarn .yarnrc.yml",
-        "lint": "eslint . --ext .js,.ts && solhint 'contracts/**/*.sol'",
-        "prettier": "prettier -c --plugin=prettier-plugin-solidity .",
-        "prettier:write": "prettier -w --plugin=prettier-plugin-solidity ."
+        "lint": "solhint 'contracts/**/*.sol'"
     },
     "devDependencies": {
         "@nomicfoundation/hardhat-chai-matchers": "^2.0.0",
@@ -58,6 +52,7 @@
     },
     "packageManager": "yarn@4.1.0",
     "dependencies": {
-        "@semaphore-protocol/contracts": "4.0.0-beta.16"
+        "@semaphore-protocol/contracts": "4.0.0-beta.16",
+        "solhint-plugin-prettier": "^0.1.0"
     }
 }

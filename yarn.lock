@@ -3553,6 +3553,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@prettier/sync@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "@prettier/sync@npm:0.3.0"
+  peerDependencies:
+    prettier: ^3.0.0
+  checksum: 10/10520d2479830c18256bf2b18349a15a8964f968059f7ccaa1f6d455c133a26e6c96bd7aea7c64ef6701700e8007ad68619b16ec83391b356b5d4a741cbae504
+  languageName: node
+  linkType: hard
+
 "@rollup/plugin-alias@npm:^5.1.0":
   version: 5.1.0
   resolution: "@rollup/plugin-alias@npm:5.1.0"
@@ -8702,6 +8711,7 @@ __metadata:
     prettier: "npm:^3.2.5"
     prettier-plugin-solidity: "npm:^1.3.1"
     solhint: "npm:^4.1.1"
+    solhint-plugin-prettier: "npm:^0.1.0"
     solidity-coverage: "npm:^0.8.1"
     ts-node: "npm:^10.9.2"
     typechain: "npm:^8.3.0"
@@ -8716,7 +8726,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-diff@npm:^1.2.0":
+"fast-diff@npm:^1.1.2, fast-diff@npm:^1.2.0":
   version: 1.3.0
   resolution: "fast-diff@npm:1.3.0"
   checksum: 10/9e57415bc69cd6efcc720b3b8fe9fdaf42dcfc06f86f0f45378b1fa512598a8aac48aa3928c8751d58e2f01bb4ba4f07e4f3d9bc0d57586d45f1bd1e872c6cde
@@ -12787,6 +12797,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prettier-linter-helpers@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "prettier-linter-helpers@npm:1.0.0"
+  dependencies:
+    fast-diff: "npm:^1.1.2"
+  checksum: 10/00ce8011cf6430158d27f9c92cfea0a7699405633f7f1d4a45f07e21bf78e99895911cbcdc3853db3a824201a7c745bd49bfea8abd5fb9883e765a90f74f8392
+  languageName: node
+  linkType: hard
+
 "prettier-plugin-solidity@npm:^1.3.1":
   version: 1.3.1
   resolution: "prettier-plugin-solidity@npm:1.3.1"
@@ -14099,6 +14118,19 @@ __metadata:
   bin:
     solcjs: solc.js
   checksum: 10/30ef9c2687f727eb5bdd685c77b1a0b354e7d6ba7a080cfcdce5a89f25a1399ff7949fecef47768088d825588da230da0044b46f056fc36f3959c0e3d3c9a82b
+  languageName: node
+  linkType: hard
+
+"solhint-plugin-prettier@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "solhint-plugin-prettier@npm:0.1.0"
+  dependencies:
+    "@prettier/sync": "npm:^0.3.0"
+    prettier-linter-helpers: "npm:^1.0.0"
+  peerDependencies:
+    prettier: ^3.0.0
+    prettier-plugin-solidity: ^1.0.0
+  checksum: 10/241caa07b9d1570117cf0cc56371cc81c69fb17706dbc68136dfb112279c8c1cf815dbaa70c146acd06876e16d9a7385312b63302f2381868c02c3bdfa23715b
   languageName: node
   linkType: hard
 
