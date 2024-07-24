@@ -2,7 +2,6 @@
 pragma solidity 0.8.23;
 
 import {ISemaphore} from "@semaphore-protocol/contracts/interfaces/ISemaphore.sol";
-import {ISemaphoreVerifier} from "@semaphore-protocol/contracts/interfaces/ISemaphoreVerifier.sol";
 import {ISemaphoreWhistleblowing} from "./interfaces/ISemaphoreWhistleblowing.sol";
 import {SemaphoreGroups} from "@semaphore-protocol/contracts/base/SemaphoreGroups.sol";
 
@@ -19,7 +18,7 @@ contract SemaphoreWhistleblowing is ISemaphoreWhistleblowing, SemaphoreGroups {
     /// @param entityId: Id of the entity.
     modifier onlyEditor(uint256 entityId) {
         if (entities[entityId] != msg.sender) {
-            revert Semaphore__CallerIsNotTheEditor();
+            revert SemaphoreWhistleblowing__CallerIsNotTheEditor();
         }
 
         _;
@@ -32,10 +31,10 @@ contract SemaphoreWhistleblowing is ISemaphoreWhistleblowing, SemaphoreGroups {
     }
 
     /// @dev See {ISemaphoreWhistleblowing-createEntity}.
-    function createEntity(uint256 entityId, address editor) external override {
+    function createEntity(address editor) external {
         uint256 groupId = group.createGroup(editor);
-        entities[entityId] = editor;
-        emit EntityCreated(entityId, editor);
+        entities[groupId] = editor;
+        emit EntityCreated(groupId, editor);
     }
 
     /// @dev See {ISemaphoreWhistleblowing-addWhistleblower}.
@@ -116,4 +115,6 @@ contract SemaphoreWhistleblowing is ISemaphoreWhistleblowing, SemaphoreGroups {
         uint256[] calldata proofSiblings,
         uint8[] calldata proofPathIndices
     ) external override {}
+
+    function createEntity(uint256 entityId, address editor) external override {}
 }

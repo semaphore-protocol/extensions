@@ -3,11 +3,11 @@ pragma solidity ^0.8.23;
 
 /// @title SemaphoreVoting contract interface.
 interface ISemaphoreVoting {
-    error Semaphore__CallerIsNotThePollCoordinator();
-    error Semaphore__MerkleTreeDepthIsNotSupported();
-    error Semaphore__PollHasAlreadyBeenStarted();
-    error Semaphore__PollIsNotOngoing();
-    error Semaphore__YouAreUsingTheSameNullifierTwice();
+    error SemaphoreVoting__CallerIsNotThePollCoordinator();
+    error SemaphoreVoting__MerkleTreeDepthIsNotSupported();
+    error SemaphoreVoting__PollHasAlreadyBeenStarted();
+    error SemaphoreVoting__PollIsNotOngoing();
+    error SemaphoreVoting__YouAreUsingTheSameNullifierTwice();
 
     enum PollState {
         Created,

@@ -5,7 +5,7 @@ import {ISemaphore} from "@semaphore-protocol/contracts/interfaces/ISemaphore.so
 
 /// @title SemaphoreWhistleblowing contract interface.
 interface ISemaphoreWhistleblowing is ISemaphore {
-    error Semaphore__CallerIsNotTheEditor();
+    error SemaphoreWhistleblowing__CallerIsNotTheEditor();
 
     /// @dev Emitted when a new entity is created.
     /// @param entityId: Id of the entity.
