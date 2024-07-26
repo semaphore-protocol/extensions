@@ -9,7 +9,7 @@ import {SemaphoreGroups} from "@semaphore-protocol/contracts/base/SemaphoreGroup
 /// @dev This contract uses the Semaphore base contracts to allow whistleblowers to leak information anonymously
 /// Leaks can be IPFS hashes, permanent links or other kinds of references.
 contract SemaphoreWhistleblowing is ISemaphoreWhistleblowing, SemaphoreGroups {
-    ISemaphore public group;
+    ISemaphore public semaphore;
 
     /// @dev Gets an entity id and return its editor address.
     mapping(uint256 => address) private entities;
@@ -25,21 +25,21 @@ contract SemaphoreWhistleblowing is ISemaphoreWhistleblowing, SemaphoreGroups {
     }
 
     /// @dev Initializes the Semaphore group used to verify the user's ZK proofs.
-    /// @param _group: Semaphore group address.
-    constructor(ISemaphore _group) {
-        group = _group;
+    /// @param _semaphore: Semaphore group address.
+    constructor(ISemaphore _semaphore) {
+        semaphore = _semaphore;
     }
 
     /// @dev See {ISemaphoreWhistleblowing-createEntity}.
     function createEntity(address editor) external {
-        uint256 groupId = group.createGroup(editor);
+        uint256 groupId = semaphore.createGroup(editor);
         entities[groupId] = editor;
         emit EntityCreated(groupId, editor);
     }
 
     /// @dev See {ISemaphoreWhistleblowing-addWhistleblower}.
     function addWhistleblower(uint256 entityId, uint256 identityCommitment) external override onlyEditor(entityId) {
-        group.addMember(entityId, identityCommitment);
+        semaphore.addMember(entityId, identityCommitment);
     }
 
     /// @dev See {ISemaphoreWhistleblowing-removeWhistleblower}.
@@ -48,7 +48,7 @@ contract SemaphoreWhistleblowing is ISemaphoreWhistleblowing, SemaphoreGroups {
         uint256 identityCommitment,
         uint256[] calldata proofSiblings
     ) external onlyEditor(entityId) {
-        group.removeMember(entityId, identityCommitment, proofSiblings);
+        semaphore.removeMember(entityId, identityCommitment, proofSiblings);
     }
 
     /// @dev See {ISemaphoreWhistleblowing-publishLeak}.
@@ -69,7 +69,7 @@ contract SemaphoreWhistleblowing is ISemaphoreWhistleblowing, SemaphoreGroups {
             points: proof
         });
 
-        group.verifyProof(entityId, semaphoreProof);
+        semaphore.verifyProof(entityId, semaphoreProof);
 
         emit LeakPublished(entityId, leak);
     }
