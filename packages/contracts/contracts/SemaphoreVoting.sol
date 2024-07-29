@@ -58,7 +58,7 @@ contract SemaphoreVoting is ISemaphoreVoting, SemaphoreGroups {
     }
 
     /// @dev See {ISemaphoreVoting-castVote}.
-    function castVote(uint256 vote, uint256, uint256 pollId) public {
+    function castVote(uint256 vote, uint256 pollId) public {
         if (polls[pollId].state != PollState.Ongoing) {
             revert SemaphoreVoting__PollIsNotOngoing();
         }
