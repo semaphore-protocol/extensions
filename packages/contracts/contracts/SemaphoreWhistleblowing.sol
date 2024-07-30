@@ -8,7 +8,7 @@ import {SemaphoreGroups} from "@semaphore-protocol/contracts/base/SemaphoreGroup
 /// @title SemaphoreWhistleblowing
 /// @dev This contract uses the Semaphore base contracts to allow whistleblowers to leak information anonymously
 /// Leaks can be IPFS hashes, permanent links or other kinds of references.
-contract SemaphoreWhistleblowing is ISemaphoreWhistleblowing, SemaphoreGroups {
+abstract contract SemaphoreWhistleblowing is ISemaphoreWhistleblowing, SemaphoreGroups {
     ISemaphore public semaphore;
 
     /// @dev Gets an entity id and return its editor address.
@@ -54,7 +54,7 @@ contract SemaphoreWhistleblowing is ISemaphoreWhistleblowing, SemaphoreGroups {
     /// @dev See {ISemaphoreWhistleblowing-publishLeak}.
     function publishLeak(
         uint256 leak,
-        uint256 nullifierHash,
+        uint256 nullifier,
         uint256 entityId,
         uint256[8] calldata proof
     ) external override {
@@ -63,7 +63,7 @@ contract SemaphoreWhistleblowing is ISemaphoreWhistleblowing, SemaphoreGroups {
         ISemaphore.SemaphoreProof memory semaphoreProof = ISemaphore.SemaphoreProof({
             merkleTreeDepth: 32,
             merkleTreeRoot: merkleTreeRoot,
-            nullifier: nullifierHash,
+            nullifier: nullifier,
             message: leak,
             scope: entityId,
             points: proof
@@ -73,48 +73,4 @@ contract SemaphoreWhistleblowing is ISemaphoreWhistleblowing, SemaphoreGroups {
 
         emit LeakPublished(entityId, leak);
     }
-
-    function groupCounter() external view override returns (uint256) {}
-
-    function createGroup() external override returns (uint256) {}
-
-    function createGroup(address admin) external override returns (uint256) {}
-
-    function createGroup(address admin, uint256 merkleTreeDuration) external override returns (uint256) {}
-
-    function updateGroupAdmin(uint256 groupId, address newAdmin) external override {}
-
-    function acceptGroupAdmin(uint256 groupId) external override {}
-
-    function updateGroupMerkleTreeDuration(uint256 groupId, uint256 newMerkleTreeDuration) external override {}
-
-    function addMember(uint256 groupId, uint256 identityCommitment) external override {}
-
-    function addMembers(uint256 groupId, uint256[] calldata identityCommitments) external override {}
-
-    function updateMember(
-        uint256 groupId,
-        uint256 oldIdentityCommitment,
-        uint256 newIdentityCommitment,
-        uint256[] calldata merkleProofSiblings
-    ) external override {}
-
-    function removeMember(
-        uint256 groupId,
-        uint256 identityCommitment,
-        uint256[] calldata merkleProofSiblings
-    ) external override {}
-
-    function validateProof(uint256 groupId, SemaphoreProof calldata proof) external override {}
-
-    function verifyProof(uint256 groupId, SemaphoreProof calldata proof) external view override returns (bool) {}
-
-    function removeWhistleblower(
-        uint256 entityId,
-        uint256 identityCommitment,
-        uint256[] calldata proofSiblings,
-        uint8[] calldata proofPathIndices
-    ) external override {}
-
-    function createEntity(uint256 entityId, address editor) external override {}
 }

@@ -34,16 +34,19 @@ contract SemaphoreVoting is ISemaphoreVoting, SemaphoreGroups {
     function createPoll(address coordinator) public {
         uint256 groupId = semaphore.createGroup();
 
+        polls[groupId].coordinator = coordinator;
+        polls[groupId].state = PollState.Created;
+
         emit PollCreated(groupId, coordinator);
     }
 
     /// @dev See {ISemaphoreVoting-addVoter}.
-    function addVoter(uint256 pollId, uint256 groupId, uint256 identityCommitment) public onlyCoordinator(pollId) {
+    function addVoter(uint256 pollId, uint256 identityCommitment) public onlyCoordinator(pollId) {
         if (polls[pollId].state != PollState.Created) {
             revert SemaphoreVoting__PollHasAlreadyBeenStarted();
         }
 
-        semaphore.addMember(groupId, identityCommitment);
+        semaphore.addMember(pollId, identityCommitment);
     }
 
     /// @dev See {ISemaphoreVoting-startPoll}.
@@ -72,17 +75,4 @@ contract SemaphoreVoting is ISemaphoreVoting, SemaphoreGroups {
 
         emit PollEnded(pollId, msg.sender, decryptionKey);
     }
-
-    function createPoll(uint256 pollId, address coordinator, uint256 merkleTreeDepth) external {}
-
-    function createPoll(uint256 pollId, address coordinator) external override {}
-
-    function addVoter(uint256 pollId, uint256 identityCommitment) external override {}
-
-    function castVote(
-        uint256 vote,
-        uint256 nullifierHash,
-        uint256 pollId,
-        uint256[8] calldata proof
-    ) external override {}
 }

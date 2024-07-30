@@ -23,7 +23,7 @@ interface ISemaphoreVoting {
     struct Poll {
         address coordinator;
         PollState state;
-        mapping(uint256 => bool) nullifierHashes;
+        mapping(uint256 => bool) nullifier;
         uint256 groupId;
     }
 
@@ -50,9 +50,8 @@ interface ISemaphoreVoting {
     event PollEnded(uint256 pollId, address indexed coordinator, uint256 decryptionKey);
 
     /// @dev Creates a poll and the associated Merkle tree/group.
-    /// @param pollId: Id of the poll.
     /// @param coordinator: Coordinator of the poll.
-    function createPoll(uint256 pollId, address coordinator) external;
+    function createPoll(address coordinator) external;
 
     /// @dev Adds a voter to a poll.
     /// @param pollId: Id of the poll.
@@ -66,10 +65,8 @@ interface ISemaphoreVoting {
 
     /// @dev Casts an anonymous vote in a poll.
     /// @param vote: Encrypted vote.
-    /// @param nullifierHash: Nullifier hash.
     /// @param pollId: Id of the poll.
-    /// @param proof: Private zk-proof parameters.
-    function castVote(uint256 vote, uint256 nullifierHash, uint256 pollId, uint256[8] calldata proof) external;
+    function castVote(uint256 vote, uint256 pollId) external;
 
     /// @dev Ends a pull and publishes the key to decrypt the votes.
     /// @param pollId: Id of the poll.

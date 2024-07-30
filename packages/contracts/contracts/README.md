@@ -96,8 +96,5 @@ Deploy the `SemaphoreVoting.sol` and `SemaphoreWhistleblowing.sol` contract with
 yarn deploy
 ```
 
-> **Note**  
-> You should at least set a valid Ethereum URL (e.g. Infura) and a private key with some ethers.
-
 > **Warning**  
 > The group id is a number!
