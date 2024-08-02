@@ -88,6 +88,9 @@ cp .env.example .env
 
 2. Add your environment variables.
 
+> **Note**  
+> You should at least set a valid Ethereum URL (e.g. Infura) and a private key with some ethers.
+
 ### Deploy contracts
 
 Deploy the `SemaphoreVoting.sol` and `SemaphoreWhistleblowing.sol` contract without any parameter:
@@ -95,6 +98,3 @@ Deploy the `SemaphoreVoting.sol` and `SemaphoreWhistleblowing.sol` contract with
 ```bash
 yarn deploy
 ```
-
-> **Warning**  
-> The group id is a number!
