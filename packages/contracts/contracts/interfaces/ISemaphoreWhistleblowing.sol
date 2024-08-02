@@ -1,10 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.23;
 
-import {ISemaphore} from "@semaphore-protocol/contracts/interfaces/ISemaphore.sol";
-
 /// @title SemaphoreWhistleblowing contract interface.
-interface ISemaphoreWhistleblowing is ISemaphore {
+interface ISemaphoreWhistleblowing {
     error SemaphoreWhistleblowing__CallerIsNotTheEditor();
 
     /// @dev Emitted when a new entity is created.

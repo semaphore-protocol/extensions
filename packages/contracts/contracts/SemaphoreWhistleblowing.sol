@@ -3,12 +3,12 @@ pragma solidity 0.8.23;
 
 import {ISemaphore} from "@semaphore-protocol/contracts/interfaces/ISemaphore.sol";
 import {ISemaphoreWhistleblowing} from "./interfaces/ISemaphoreWhistleblowing.sol";
-import {SemaphoreGroups} from "@semaphore-protocol/contracts/base/SemaphoreGroups.sol";
+import {ISemaphoreGroups} from "@semaphore-protocol/contracts/interfaces/ISemaphoreGroups.sol";
 
 /// @title SemaphoreWhistleblowing
 /// @dev This contract uses the Semaphore base contracts to allow whistleblowers to leak information anonymously
 /// Leaks can be IPFS hashes, permanent links or other kinds of references.
-abstract contract SemaphoreWhistleblowing is ISemaphoreWhistleblowing, SemaphoreGroups {
+contract SemaphoreWhistleblowing is ISemaphoreWhistleblowing {
     ISemaphore public semaphore;
 
     /// @dev Gets an entity id and return its editor address.
@@ -58,7 +58,7 @@ abstract contract SemaphoreWhistleblowing is ISemaphoreWhistleblowing, Semaphore
         uint256 entityId,
         uint256[8] calldata proof
     ) external override {
-        uint256 merkleTreeRoot = getMerkleTreeRoot(entityId);
+        uint256 merkleTreeRoot = getmerkleTreeDuration(entityId);
 
         ISemaphore.SemaphoreProof memory semaphoreProof = ISemaphore.SemaphoreProof({
             merkleTreeDepth: 32,

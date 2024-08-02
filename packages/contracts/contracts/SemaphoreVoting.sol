@@ -3,12 +3,11 @@ pragma solidity ^0.8.23;
 
 import {ISemaphore} from "@semaphore-protocol/contracts/interfaces/ISemaphore.sol";
 import {ISemaphoreVoting} from "./interfaces/ISemaphoreVoting.sol";
-import {SemaphoreGroups} from "@semaphore-protocol/contracts/base/SemaphoreGroups.sol";
 
 /// @title Semaphore Voting contract.
 /// @notice It allows users to vote anonymously in a poll.
 /// @dev The following code allows you to create polls, add voters and allow them to vote anonymously.
-contract SemaphoreVoting is ISemaphoreVoting, SemaphoreGroups {
+contract SemaphoreVoting is ISemaphoreVoting {
     ISemaphore public semaphore;
 
     /// @dev Gets a poll id and returns the poll data.
