@@ -3,7 +3,6 @@ pragma solidity 0.8.23;
 
 import {ISemaphore} from "@semaphore-protocol/contracts/interfaces/ISemaphore.sol";
 import {ISemaphoreWhistleblowing} from "./interfaces/ISemaphoreWhistleblowing.sol";
-import {ISemaphoreGroups} from "@semaphore-protocol/contracts/interfaces/ISemaphoreGroups.sol";
 
 /// @title SemaphoreWhistleblowing
 /// @dev This contract uses the Semaphore base contracts to allow whistleblowers to leak information anonymously
