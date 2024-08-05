@@ -23,7 +23,7 @@ interface ISemaphoreVoting {
     struct Poll {
         address coordinator;
         PollState state;
-        mapping(uint256 => bool) nullifier;
+        mapping(uint256 => bool) nullifiers;
         uint256 groupId;
     }
 
@@ -66,7 +66,14 @@ interface ISemaphoreVoting {
     /// @dev Casts an anonymous vote in a poll.
     /// @param vote: Encrypted vote.
     /// @param pollId: Id of the poll.
-    function castVote(uint256 vote, uint256 pollId) external;
+    function castVote(
+        uint256 vote,
+        uint256 pollId,
+        uint256 nullifier,
+        uint256 merkleTreeDepth,
+        uint256 merkleTreeRoot,
+        uint256[8] calldata proof
+    ) external;
 
     /// @dev Ends a pull and publishes the key to decrypt the votes.
     /// @param pollId: Id of the poll.

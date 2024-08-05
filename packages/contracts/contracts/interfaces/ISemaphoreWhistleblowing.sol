@@ -16,9 +16,8 @@ interface ISemaphoreWhistleblowing {
     event LeakPublished(uint256 indexed entityId, uint256 leak);
 
     /// @dev Creates an entity and the associated Merkle tree/group.
-    /// @param entityId: Id of the entity.
     /// @param editor: Editor of the entity.
-    function createEntity(uint256 entityId, address editor) external;
+    function createEntity(address editor) external;
 
     /// @dev Adds a whistleblower to an entity.
     /// @param entityId: Id of the entity.
@@ -42,5 +41,12 @@ interface ISemaphoreWhistleblowing {
     /// @param nullifier: Nullifier hash.
     /// @param entityId: Id of the entity.
     /// @param proof: Private zk-proof parameters.
-    function publishLeak(uint256 leak, uint256 nullifier, uint256 entityId, uint256[8] calldata proof) external;
+    function publishLeak(
+        uint256 leak,
+        uint256 nullifier,
+        uint256 entityId,
+        uint256 merkleTreeDepth,
+        uint256 merkleTreeRoot,
+        uint256[8] calldata proof
+    ) external;
 }

@@ -55,12 +55,12 @@ contract SemaphoreWhistleblowing is ISemaphoreWhistleblowing {
         uint256 leak,
         uint256 nullifier,
         uint256 entityId,
+        uint256 merkleTreeDepth,
+        uint256 merkleTreeRoot,
         uint256[8] calldata proof
-    ) external override {
-        uint256 merkleTreeRoot = getmerkleTreeDuration(entityId);
-
+    ) external {
         ISemaphore.SemaphoreProof memory semaphoreProof = ISemaphore.SemaphoreProof({
-            merkleTreeDepth: 32,
+            merkleTreeDepth: merkleTreeDepth,
             merkleTreeRoot: merkleTreeRoot,
             nullifier: nullifier,
             message: leak,
@@ -68,8 +68,15 @@ contract SemaphoreWhistleblowing is ISemaphoreWhistleblowing {
             points: proof
         });
 
-        semaphore.verifyProof(entityId, semaphoreProof);
+        semaphore.validateProof(entityId, semaphoreProof);
 
         emit LeakPublished(entityId, leak);
     }
+
+    function removeWhistleblower(
+        uint256 entityId,
+        uint256 identityCommitment,
+        uint256[] calldata proofSiblings,
+        uint8[] calldata proofPathIndices
+    ) external override {}
 }

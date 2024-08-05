@@ -50,7 +50,6 @@
         "typechain": "^8.3.0",
         "typescript": "^5.3.3"
     },
-    "packageManager": "yarn@4.1.0",
     "dependencies": {
         "@semaphore-protocol/contracts": "4.0.0-beta.16",
         "solhint-plugin-prettier": "^0.1.0"

@@ -60,11 +60,29 @@ contract SemaphoreVoting is ISemaphoreVoting {
     }
 
     /// @dev See {ISemaphoreVoting-castVote}.
-    function castVote(uint256 vote, uint256 pollId) public {
+    function castVote(
+        uint256 vote,
+        uint256 pollId,
+        uint256 merkleTreeDepth,
+        uint256 nullifier,
+        uint256 merkleTreeRoot,
+        uint256[8] calldata proof
+    ) public {
         if (polls[pollId].state != PollState.Ongoing) {
             revert SemaphoreVoting__PollIsNotOngoing();
         }
 
+        ISemaphore.SemaphoreProof memory semaphoreProof = ISemaphore.SemaphoreProof({
+            merkleTreeDepth: merkleTreeDepth,
+            merkleTreeRoot: merkleTreeRoot,
+            nullifier: nullifier,
+            message: vote,
+            scope: pollId,
+            points: proof
+        });
+
+        semaphore.validateProof(pollId, semaphoreProof);
+        polls[pollId].nullifiers[nullifier] = true;
         emit VoteAdded(pollId, vote);
     }
 

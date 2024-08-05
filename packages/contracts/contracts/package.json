@@ -1,7 +1,7 @@
 {
     "name": "@semaphore-extensions/contracts",
     "version": "0.1.0",
-    "description": "Semaphore extensions Contracts to manage anonymous voting and whistleblowing",
+    "description": "Solidity contracts to enhance Semaphore with extra features and customization",
     "license": "MIT",
     "files": [
         "**/*.sol",

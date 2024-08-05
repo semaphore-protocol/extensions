@@ -12,13 +12,13 @@ task("deploy:semaphore-whistleblowing", "Deploy a  Semaphore whistleblowing cont
             semaphoreAddress = await semaphore.getAddress()
         }
 
-        const SemaphoreWhistleblowingFactory = await ethers.getContractFactory("SemaphoreWhistleblowing ")
+        const SemaphoreWhistleblowingFactory = await ethers.getContractFactory("SemaphoreWhistleblowing")
 
         const SemaphoreWhistleblowingContract = await SemaphoreWhistleblowingFactory.deploy(semaphoreAddress)
 
         if (logs) {
             console.info(
-                `Semaphore Voting contract has been deployed to: ${await SemaphoreWhistleblowingContract.getAddress()}`
+                `Semaphore Whistleblowing contract has been deployed to: ${await SemaphoreWhistleblowingContract.getAddress()}`
             )
         }
 
