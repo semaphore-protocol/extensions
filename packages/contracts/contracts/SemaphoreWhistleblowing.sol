@@ -72,11 +72,4 @@ contract SemaphoreWhistleblowing is ISemaphoreWhistleblowing {
 
         emit LeakPublished(entityId, leak);
     }
-
-    function removeWhistleblower(
-        uint256 entityId,
-        uint256 identityCommitment,
-        uint256[] calldata proofSiblings,
-        uint8[] calldata proofPathIndices
-    ) external override {}
 }

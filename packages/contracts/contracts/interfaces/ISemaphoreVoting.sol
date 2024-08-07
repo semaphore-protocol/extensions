@@ -15,11 +15,6 @@ interface ISemaphoreVoting {
         Ended
     }
 
-    struct Verifier {
-        address contractAddress;
-        uint256 merkleTreeDepth;
-    }
-
     struct Poll {
         address coordinator;
         PollState state;

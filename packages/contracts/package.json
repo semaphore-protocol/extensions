@@ -7,7 +7,6 @@
     "scripts": {
         "dev": "hardhat node & yarn deploy --network localhost",
         "compile": "hardhat compile",
-        "deploy": "yarn deploy:semaphore-voting && yarn deploy:semaphore-whistleblowing",
         "deploy:semaphore-voting": "hardhat deploy:semaphore-voting",
         "deploy:semaphore-whistleblowing": "hardhat deploy:semaphore-whistleblowing",
         "verify": "hardhat verify",
@@ -51,7 +50,7 @@
         "typescript": "^5.3.3"
     },
     "dependencies": {
-        "@semaphore-protocol/contracts": "4.0.0-beta.16",
+        "@semaphore-protocol/contracts": "4.0.1",
         "solhint-plugin-prettier": "^0.1.0"
     }
 }

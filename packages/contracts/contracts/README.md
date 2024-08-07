@@ -93,8 +93,14 @@ cp .env.example .env
 
 ### Deploy contracts
 
-Deploy the `SemaphoreVoting.sol` and `SemaphoreWhistleblowing.sol` contract without any parameter:
+To deploy the `SemaphoreVoting.sol`:
 
 ```bash
-yarn deploy
+yarn deploy:semaphore-voting
+```
+
+To deploy the `SemaphoreWhistleblowing.sol`:
+
+```bash
+yarn deploy:semaphore-whistleblowing
 ```

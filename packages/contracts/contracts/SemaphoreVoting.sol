@@ -82,7 +82,6 @@ contract SemaphoreVoting is ISemaphoreVoting {
         });
 
         semaphore.validateProof(pollId, semaphoreProof);
-        polls[pollId].nullifiers[nullifier] = true;
         emit VoteAdded(pollId, vote);
     }
 

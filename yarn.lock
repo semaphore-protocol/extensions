@@ -3790,7 +3790,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@semaphore-extensions/contracts@workspace:packages/contracts/contracts"
   dependencies:
-    "@semaphore-protocol/contracts": "npm:^4.0.0-beta.16"
+    "@semaphore-protocol/contracts": "npm:4.0.1"
   languageName: unknown
   linkType: soft
 
@@ -3844,12 +3844,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@semaphore-protocol/contracts@npm:4.0.0-beta.16, @semaphore-protocol/contracts@npm:^4.0.0-beta.16":
+"@semaphore-protocol/contracts@npm:4.0.0-beta.16":
   version: 4.0.0-beta.16
   resolution: "@semaphore-protocol/contracts@npm:4.0.0-beta.16"
   dependencies:
     "@zk-kit/lean-imt.sol": "npm:2.0.0"
   checksum: 10/0ffa86c7bacef09b861d22aa9ebed51b0bf0d30b5f1d8c73cd0451b8e0e01b5c890020cbbba8ea5abd0004f7410a58da2b2aa33cf1180509908db31785ff4a6b
+  languageName: node
+  linkType: hard
+
+"@semaphore-protocol/contracts@npm:4.0.1":
+  version: 4.0.1
+  resolution: "@semaphore-protocol/contracts@npm:4.0.1"
+  dependencies:
+    "@zk-kit/lean-imt.sol": "npm:2.0.0"
+  checksum: 10/6d1378bb12342629d7ac426fb65f41b122e93e9fe774265def2e60ec3a8be4c83fbaeba483ccfc61d5b9d849abb86a5ff5ca6ec7f98bb6f3d3dca2000a2f5c52
   languageName: node
   linkType: hard
 
