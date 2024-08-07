@@ -18,7 +18,6 @@ interface ISemaphoreVoting {
     struct Poll {
         address coordinator;
         PollState state;
-        mapping(uint256 => bool) nullifiers;
         uint256 groupId;
     }
 
