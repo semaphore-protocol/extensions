@@ -1,6 +1,6 @@
 {
-    "name": "extension-contracts",
-    "description": "Solidity contracts to enhance Semaphore with extra features and customization",
+    "name": "contract-extensions",
+    "description": "Solidity contracts to enhance Semaphore with extra features and customization.",
     "publishConfig": {
         "access": "public"
     },

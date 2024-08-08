@@ -2,7 +2,7 @@
     <h1 align="center">
         Semaphore Extension Contracts
     </h1>
-    <p align="center">Solidity contracts to enhance Semaphore with extra features and customization</p>
+    <p align="center">Solidity contracts to enhance Semaphore with extra features and customization.</p>
 </p>
 <p align="center">
     <a href="https://github.com/semaphore-protocol">
