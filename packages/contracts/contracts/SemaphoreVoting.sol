@@ -87,6 +87,10 @@ contract SemaphoreVoting is ISemaphoreVoting {
 
     /// @dev See {ISemaphoreVoting-endPoll}.
     function endPoll(uint256 pollId, uint256 decryptionKey) public override onlyCoordinator(pollId) {
+        if (polls[pollId].state != PollState.Ongoing) {
+            revert SemaphoreVoting__PollIsNotOngoing();
+        }
+
         polls[pollId].state = PollState.Ended;
 
         emit PollEnded(pollId, msg.sender, decryptionKey);
