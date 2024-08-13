@@ -28,12 +28,10 @@ interface ISemaphoreWhistleblowing {
     /// @param entityId: Id of the entity.
     /// @param identityCommitment: Identity commitment of the group member.
     /// @param proofSiblings: Array of the sibling nodes of the proof of membership.
-    /// @param proofPathIndices: Path of the proof of membership.
     function removeWhistleblower(
         uint256 entityId,
         uint256 identityCommitment,
-        uint256[] calldata proofSiblings,
-        uint8[] calldata proofPathIndices
+        uint256[] calldata proofSiblings
     ) external;
 
     /// @dev Allows whistleblowers to publish leaks anonymously.

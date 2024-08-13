@@ -5,6 +5,7 @@ import "dotenv/config"
 import { HardhatUserConfig } from "hardhat/config"
 import "./tasks/deploy-semaphore-voting"
 import "./tasks/deploy-semaphore-whistle-blowing"
+import "./tasks/accounts"
 
 const config: HardhatUserConfig = {
     solidity: "0.8.23",
