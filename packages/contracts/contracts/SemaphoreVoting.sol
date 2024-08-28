@@ -30,7 +30,7 @@ contract SemaphoreVoting is ISemaphoreVoting {
     }
 
     /// @dev See {ISemaphoreVoting-createPoll}.
-    function createPoll(address coordinator) public {
+    function createPoll(address coordinator) external override {
         uint256 groupId = semaphore.createGroup();
 
         polls[groupId].coordinator = coordinator;
@@ -40,7 +40,7 @@ contract SemaphoreVoting is ISemaphoreVoting {
     }
 
     /// @dev See {ISemaphoreVoting-addVoter}.
-    function addVoter(uint256 pollId, uint256 identityCommitment) public onlyCoordinator(pollId) {
+    function addVoter(uint256 pollId, uint256 identityCommitment) external override onlyCoordinator(pollId) {
         if (polls[pollId].state != PollState.Created) {
             revert SemaphoreVoting__PollHasAlreadyBeenStarted();
         }
@@ -49,7 +49,7 @@ contract SemaphoreVoting is ISemaphoreVoting {
     }
 
     /// @dev See {ISemaphoreVoting-startPoll}.
-    function startPoll(uint256 pollId, uint256 encryptionKey) public override onlyCoordinator(pollId) {
+    function startPoll(uint256 pollId, uint256 encryptionKey) external override onlyCoordinator(pollId) {
         if (polls[pollId].state != PollState.Created) {
             revert SemaphoreVoting__PollHasAlreadyBeenStarted();
         }
@@ -67,7 +67,7 @@ contract SemaphoreVoting is ISemaphoreVoting {
         uint256 nullifier,
         uint256 merkleTreeRoot,
         uint256[8] calldata proof
-    ) public {
+    ) external override {
         if (polls[pollId].state != PollState.Ongoing) {
             revert SemaphoreVoting__PollIsNotOngoing();
         }
@@ -86,7 +86,7 @@ contract SemaphoreVoting is ISemaphoreVoting {
     }
 
     /// @dev See {ISemaphoreVoting-endPoll}.
-    function endPoll(uint256 pollId, uint256 decryptionKey) public override onlyCoordinator(pollId) {
+    function endPoll(uint256 pollId, uint256 decryptionKey) external override onlyCoordinator(pollId) {
         if (polls[pollId].state != PollState.Ongoing) {
             revert SemaphoreVoting__PollIsNotOngoing();
         }
