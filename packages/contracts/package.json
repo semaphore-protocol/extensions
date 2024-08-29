@@ -1,9 +1,6 @@
 {
     "name": "contract-extensions",
-    "description": "Solidity contracts to enhance Semaphore with extra features and customization.",
-    "publishConfig": {
-        "access": "public"
-    },
+    "private": "true",
     "scripts": {
         "dev": "hardhat node & yarn deploy --network localhost",
         "compile": "hardhat compile",
