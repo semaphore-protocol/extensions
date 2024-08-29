@@ -53,10 +53,26 @@ node_modules/
 # Yarn Integrity file
 .yarn-integrity
 
+# dotenv environment variable files
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
 # Production
 build
 dist
 /docs
+
+# Docusaurus cache and generated files
+.docusaurus
+.cache-loader
+
+# Hardhat
+artifacts
+cache
+typechain-types
 
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
@@ -69,3 +85,12 @@ dist
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# asdf
+.tool-versions
+
+# direnv
+.envrc
+
+# Other
+snark-artifacts

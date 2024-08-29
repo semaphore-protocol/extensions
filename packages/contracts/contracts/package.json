@@ -1,0 +1,18 @@
+{
+    "name": "@semaphore-extensions/contracts",
+    "version": "0.1.0",
+    "description": "Solidity contracts to enhance Semaphore with extra features and customization.",
+    "license": "MIT",
+    "files": [
+        "**/*.sol",
+        "*.sol",
+        "README.md"
+    ],
+    "homepage": "https://github.com/semaphore-protocol/extensions",
+    "publishConfig": {
+        "access": "public"
+    },
+    "dependencies": {
+        "@semaphore-protocol/contracts": "4.0.1"
+    }
+}
