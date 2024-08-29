@@ -1,6 +1,6 @@
 {
     "name": "@semaphore-extensions/contracts",
-    "version": "1.0.0-alpha.2",
+    "version": "1.0.0-beta.1",
     "description": "Solidity contracts to enhance Semaphore with extra features and customization.",
     "license": "MIT",
     "files": [
