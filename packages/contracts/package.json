@@ -1,6 +1,5 @@
 {
     "name": "contract-extensions",
-    "private": "true",
     "scripts": {
         "dev": "hardhat node & yarn deploy --network localhost",
         "compile": "hardhat compile",
