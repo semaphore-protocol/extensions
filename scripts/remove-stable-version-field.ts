@@ -1,7 +1,9 @@
 import { readFileSync, writeFileSync } from "node:fs"
 
 async function main() {
-    const projectDirectory = `packages/${process.argv[2]}`
+    const packageName = process.argv[2]
+    const projectDirectory =
+        packageName === "contracts" ? `packages/${packageName}/contracts` : `packages/${packageName}`
 
     const filePath = `${projectDirectory}/package.json`
 
