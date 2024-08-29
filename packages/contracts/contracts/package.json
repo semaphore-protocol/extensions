@@ -8,12 +8,15 @@
         "*.sol",
         "README.md"
     ],
-    "homepage": "https://github.com/semaphore-protocol/extensions",
+    "repository": "https://github.com/semaphore-protocol/extensions",
+    "homepage": "https://github.com/semaphore-protocol/extensions/tree/main/packages/contracts",
+    "bugs": {
+        "url": "https://github.com/semaphore-protocol/extensions.git/issues"
+    },
     "publishConfig": {
         "access": "public"
     },
     "dependencies": {
         "@semaphore-protocol/contracts": "4.0.1"
-    },
-    "stableVersion": "0.1.0"
+    }
 }
