@@ -15,7 +15,9 @@ interface ISemaphoreWhistleblowing {
     /// @param leak: News leak.
     event LeakPublished(uint256 indexed entityId, uint256 leak);
 
-    /// @dev Creates an entity and the associated Merkle tree/group.
+    /// @dev Creates an entity and its associated Merkle tree/group.
+    /// An entity represents a group of individuals, such as an organization or
+    /// event participants.
     /// @param editor: Editor of the entity.
     function createEntity(address editor) external;
 

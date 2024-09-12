@@ -23,8 +23,8 @@ contract SemaphoreWhistleblowing is ISemaphoreWhistleblowing {
         _;
     }
 
-    /// @dev Initializes the Semaphore group used to verify the user's ZK proofs.
-    /// @param _semaphore: Semaphore group address.
+    /// @dev Initializes the Semaphore contract.
+    /// @param _semaphore: Semaphore contract address.
     constructor(ISemaphore _semaphore) {
         semaphore = _semaphore;
     }
