@@ -23,7 +23,7 @@ contract SemaphoreWhistleblowing is ISemaphoreWhistleblowing {
         _;
     }
 
-    /// @dev Initializes the Semaphore contract.
+    /// @dev Initializes the Semaphore instance.
     /// @param _semaphore: Semaphore contract address.
     constructor(ISemaphore _semaphore) {
         semaphore = _semaphore;
