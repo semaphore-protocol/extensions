@@ -30,10 +30,12 @@ node_modules/
 
 # TypeScript cache
 *.tsbuildinfo
+next-env.d.ts
 
 # Optional npm cache directory
 .npm
 .DS_Store
+*.pem
 
 # Output of 'npm pack'
 *.tgz
@@ -94,3 +96,13 @@ typechain-types
 
 # Other
 snark-artifacts
+
+# vercel
+.vercel
+
+# local env files
+.env*.local
+
+# next.js
+.next/
+out/
