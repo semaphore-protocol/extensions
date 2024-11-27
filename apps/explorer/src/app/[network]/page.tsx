@@ -13,8 +13,11 @@ export default function Network() {
     const [allGroups, setAllGroups] = useState<GroupResponse[]>([])
     const [filteredGroups, setFilteredGroups] = useState<GroupResponse[]>([])
 
+    const [loading, setLoading] = useState(false)
+
     useEffect(() => {
         const fetchData = async () => {
+            setLoading(true)
             const subgraph = new SemaphoreSubgraph(network)
 
             const groups = await subgraph.getGroups({
@@ -24,6 +27,7 @@ export default function Network() {
 
             setAllGroups(groups)
             setFilteredGroups(groups.slice())
+            setLoading(false)
         }
 
         fetchData()
@@ -38,7 +42,11 @@ export default function Network() {
         [allGroups]
     )
 
-    return (
+    return loading ? (
+        <div className="flex justify-center items-center h-screen">
+            <div className="loader" />
+        </div>
+    ) : (
         allGroups && (
             <div className="mx-auto max-w-7xl px-4 lg:px-8 pt-20">
                 <SearchBar className="mb-6" placeholder="Group ID" onChange={filterGroups} />
