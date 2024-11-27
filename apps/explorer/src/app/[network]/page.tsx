@@ -29,11 +29,14 @@ export default function Network() {
         fetchData()
     }, [])
 
-    const filterGroups = useCallback((groupId: string) => {
-        const groups = allGroups.filter((group) => (!groupId ? true : group.id.includes(groupId)))
+    const filterGroups = useCallback(
+        (groupId: string) => {
+            const groups = allGroups.filter((group) => (!groupId ? true : group.id.includes(groupId)))
 
-        setFilteredGroups(groups)
-    }, [])
+            setFilteredGroups(groups)
+        },
+        [allGroups]
+    )
 
     return (
         allGroups && (
