@@ -154,12 +154,24 @@
         <tr>
             <td>
                 <a href="https://github.com/semaphore-protocol/extensions/tree/main/apps/benchmarks">
-                    benchmarks
+                    Benchmarks
                 </a>
             </td>
             <td>
                 <a href="https://benchmarks.semaphore.pse.dev/">
                     https://benchmarks.semaphore.pse.dev/
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="https://github.com/semaphore-protocol/extensions/tree/main/apps/explorer">
+                    Explorer
+                </a>
+            </td>
+            <td>
+                <a href="https://explorer.semaphore.pse.dev/">
+                    https://explorer.semaphore.pse.dev/
                 </a>
             </td>
         </tr>
