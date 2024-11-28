@@ -1,5 +1,5 @@
 <h1 align="center">
-  Semaphore explorer
+Semaphore Explorer
 </h1>
 
 <p align="center">
