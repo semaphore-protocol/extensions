@@ -16,7 +16,22 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
     title: "Semaphore Explorer",
-    description: "Discover Semaphore groups, view members and zero-knowledge proofs."
+    description: "Discover Semaphore groups, view members and zero-knowledge proofs.",
+    icons: { icon: "/icon.svg", apple: "/apple-icon.png" },
+    metadataBase: new URL("https://explorer.semaphore.pse.dev"),
+    openGraph: {
+        type: "website",
+        url: "https://explorer.semaphore.pse.dev",
+        title: "Semaphore Explorer",
+        description: "Discover Semaphore groups, view members and zero-knowledge proofs.",
+        siteName: "Semaphore Explorer",
+        images: [
+            {
+                url: "https://explorer.semaphore.pse.dev/social-media.png"
+            }
+        ]
+    },
+    twitter: { card: "summary_large_image", images: "https://explorer.semaphore.pse.dev/social-media.png" }
 }
 
 export default function RootLayout({

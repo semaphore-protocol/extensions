@@ -15,8 +15,11 @@ export default function Group() {
     const [filteredCommitments, setFilteredCommitments] = useState<string[]>([])
     const [filteredProofs, setFilteredProofs] = useState<any[]>([])
 
+    const [loading, setLoading] = useState(false)
+
     useEffect(() => {
         const fetchData = async () => {
+            setLoading(true)
             const subgraph = new SemaphoreSubgraph(network)
 
             const groupInfo = await subgraph.getGroup(groupId, {
@@ -28,6 +31,7 @@ export default function Group() {
 
             setFilteredCommitments(groupInfo.members || [])
             setFilteredProofs(groupInfo.validatedProofs || [])
+            setLoading(false)
         }
 
         fetchData()
@@ -59,7 +63,11 @@ export default function Group() {
         [group]
     )
 
-    return (
+    return loading ? (
+        <div className="flex justify-center items-center h-screen">
+            <div className="loader" />
+        </div>
+    ) : (
         group && (
             <div className="mx-auto max-w-7xl px-4 lg:px-8 pt-20">
                 <div className="flex justify-center flex-col pb-10 font-[family-name:var(--font-geist-sans)]">
