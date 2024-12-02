@@ -34,8 +34,14 @@ export default function Network() {
     }, [])
 
     const filterGroups = useCallback(
-        (groupId: string) => {
-            const groups = allGroups.filter((group) => (!groupId ? true : group.id.includes(groupId)))
+        (groupIdOrAdmin: string) => {
+            let groups: GroupResponse[]
+            if (groupIdOrAdmin.startsWith("0x")) {
+                groupIdOrAdmin = groupIdOrAdmin.toLowerCase()
+                groups = allGroups.filter((group) => (!groupIdOrAdmin ? true : group.admin?.includes(groupIdOrAdmin)))
+            } else {
+                groups = allGroups.filter((group) => (!groupIdOrAdmin ? true : group.id.includes(groupIdOrAdmin)))
+            }
 
             setFilteredGroups(groups)
         },
@@ -49,7 +55,7 @@ export default function Network() {
     ) : (
         allGroups && (
             <div className="mx-auto max-w-7xl px-4 lg:px-8 pt-20">
-                <SearchBar className="mb-6" placeholder="Group ID" onChange={filterGroups} />
+                <SearchBar className="mb-6" placeholder="Group ID, Admin" onChange={filterGroups} />
 
                 <div className="flex justify-center flex-col pb-10 font-[family-name:var(--font-geist-sans)]">
                     <ul className="divide-y divide-gray-300 min-w-xl">
