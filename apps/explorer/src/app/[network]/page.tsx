@@ -25,8 +25,10 @@ export default function Network() {
                 validatedProofs: true
             })
 
-            setAllGroups(groups)
-            setFilteredGroups(groups.slice())
+            const sortedGroups = groups.sort((a, b) => parseInt(a.id, 10) - parseInt(b.id, 10))
+
+            setAllGroups(sortedGroups)
+            setFilteredGroups(sortedGroups.slice())
             setLoading(false)
         }
 
