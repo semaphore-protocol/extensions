@@ -16,10 +16,8 @@ export default function Network() {
 
     const searchParams = useSearchParams()
     const adminParam = useMemo(() => new URLSearchParams(searchParams).get("admin"), [searchParams.toString()])
-    const groupIdParam = useMemo(() => new URLSearchParams(searchParams).get("groupid"), [searchParams.toString()]) // const [adminParam, ] = useState(new URLSearchParams(searchParams).get("admin"))
-    // console.log("group", groupIdParam)
-    // const [groupIdParam,] = useState(new URLSearchParams(searchParams).get("groupid"))
-    // console.log("group", groupIdParam)
+    const groupIdParam = useMemo(() => new URLSearchParams(searchParams).get("groupid"), [searchParams.toString()])
+    const queryParam = adminParam || groupIdParam
 
     useEffect(() => {
         const fetchData = async () => {
@@ -44,17 +42,14 @@ export default function Network() {
     const filterGroups = useCallback(
         (groupIdOrAdmin: string) => {
             let groups: GroupResponse[]
-            if (groupIdParam) {
-                groups = allGroups.filter((group) => (!groupIdOrAdmin ? true : group.id === groupIdOrAdmin))
-            } else if (adminParam) {
-                groups = allGroups.filter((group) => (!groupIdOrAdmin ? true : group.admin === groupIdOrAdmin))
-            } else if (groupIdOrAdmin.startsWith("0x")) {
+            if (groupIdOrAdmin.startsWith("0x")) {
                 groupIdOrAdmin = groupIdOrAdmin.toLowerCase()
-                groups = allGroups.filter((group) => (!groupIdOrAdmin ? true : group.admin?.includes(groupIdOrAdmin)))
+                groups = allGroups.filter((group) => group.admin?.includes(groupIdOrAdmin))
             } else {
-                groups = allGroups.filter((group) => (!groupIdOrAdmin ? true : group.id.includes(groupIdOrAdmin)))
+                groups = allGroups.filter(
+                    (group) => group.id.includes(groupIdOrAdmin) || group.admin === groupIdOrAdmin
+                )
             }
-
             setFilteredGroups(groups)
         },
         [allGroups]
@@ -71,7 +66,12 @@ export default function Network() {
     ) : (
         allGroups && (
             <div className="mx-auto max-w-7xl px-4 lg:px-8 pt-20">
-                <SearchBar className="mb-6" placeholder="Group ID, Admin" onChange={filterGroups} />
+                <SearchBar
+                    className="mb-6"
+                    placeholder="Group ID, Admin"
+                    onChange={filterGroups}
+                    queryParam={queryParam}
+                />
 
                 <div className="flex justify-center flex-col pb-10 font-[family-name:var(--font-geist-sans)]">
                     <ul className="divide-y divide-gray-300 min-w-xl">
