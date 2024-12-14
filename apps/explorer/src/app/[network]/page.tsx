@@ -2,8 +2,8 @@
 
 import { GroupResponse, SemaphoreSubgraph } from "@semaphore-protocol/data"
 import { SupportedNetwork } from "@semaphore-protocol/utils"
-import { usePathname } from "next/navigation"
-import { useCallback, useEffect, useState } from "react"
+import { usePathname, useSearchParams } from "next/navigation"
+import { useCallback, useEffect, useState, useMemo } from "react"
 import SearchBar from "@/components/SearchBar"
 
 export default function Network() {
@@ -12,8 +12,12 @@ export default function Network() {
 
     const [allGroups, setAllGroups] = useState<GroupResponse[]>([])
     const [filteredGroups, setFilteredGroups] = useState<GroupResponse[]>([])
-
     const [loading, setLoading] = useState(false)
+
+    const searchParams = useSearchParams()
+    const adminParam = useMemo(() => new URLSearchParams(searchParams).get("admin"), [searchParams.toString()])
+    const groupIdParam = useMemo(() => new URLSearchParams(searchParams).get("groupid"), [searchParams.toString()])
+    const queryParam = adminParam || groupIdParam
 
     useEffect(() => {
         const fetchData = async () => {
@@ -40,15 +44,20 @@ export default function Network() {
             let groups: GroupResponse[]
             if (groupIdOrAdmin.startsWith("0x")) {
                 groupIdOrAdmin = groupIdOrAdmin.toLowerCase()
-                groups = allGroups.filter((group) => (!groupIdOrAdmin ? true : group.admin?.includes(groupIdOrAdmin)))
+                groups = allGroups.filter((group) => group.admin?.includes(groupIdOrAdmin))
             } else {
-                groups = allGroups.filter((group) => (!groupIdOrAdmin ? true : group.id.includes(groupIdOrAdmin)))
+                groups = allGroups.filter(
+                    (group) => group.id.includes(groupIdOrAdmin) || group.admin === groupIdOrAdmin
+                )
             }
-
             setFilteredGroups(groups)
         },
         [allGroups]
     )
+
+    useEffect(() => {
+        filterGroups(adminParam || groupIdParam || "")
+    }, [adminParam, groupIdParam, filterGroups])
 
     return loading ? (
         <div className="flex justify-center items-center h-screen">
@@ -57,7 +66,12 @@ export default function Network() {
     ) : (
         allGroups && (
             <div className="mx-auto max-w-7xl px-4 lg:px-8 pt-20">
-                <SearchBar className="mb-6" placeholder="Group ID, Admin" onChange={filterGroups} />
+                <SearchBar
+                    className="mb-6"
+                    placeholder="Group ID, Admin"
+                    onChange={filterGroups}
+                    queryParam={queryParam}
+                />
 
                 <div className="flex justify-center flex-col pb-10 font-[family-name:var(--font-geist-sans)]">
                     <ul className="divide-y divide-gray-300 min-w-xl">
