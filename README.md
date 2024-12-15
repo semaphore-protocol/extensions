@@ -1,9 +1,7 @@
-<p align="center">
-    <h1 align="center">
-        Semaphore Extensions
-    </h1>
-    <p align="center">Semaphore Tools and Extensions Monorepo.</p>
-</p>
+<div align="center">
+    <h1>Semaphore Extensions</h1>
+    <p>Semaphore Tools and Extensions Monorepo.</p>
+</div>
 
 <p align="center">
     <a href="https://github.com/semaphore-protocol" target="_blank">
@@ -142,7 +140,7 @@
                 </a>
             </td>
         </tr>
-    <tbody>
+    </tbody>
 </table>
 
 ## 🖥️ Apps
