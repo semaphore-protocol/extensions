@@ -6,8 +6,8 @@ import { useState, useEffect, ChangeEvent } from "react"
 interface ISearchBarProps {
     placeholder: string
     onChange: (value: string) => void
-    className: string
-    queryParam: string | null
+    className?: string
+    queryParam?: string | null
     setSearchQuery?: React.Dispatch<React.SetStateAction<string>>
 }
 
