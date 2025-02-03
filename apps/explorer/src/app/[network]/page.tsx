@@ -13,6 +13,7 @@ export default function Network() {
     const [allGroups, setAllGroups] = useState<GroupResponse[]>([])
     const [filteredGroups, setFilteredGroups] = useState<GroupResponse[]>([])
     const [loading, setLoading] = useState(false)
+    const [searchQuery, setSearchQuery] = useState<string>("")
 
     const searchParams = useSearchParams()
     const adminParam = useMemo(() => new URLSearchParams(searchParams).get("admin"), [searchParams.toString()])
@@ -59,6 +60,21 @@ export default function Network() {
         filterGroups(adminParam || groupIdParam || "")
     }, [adminParam, groupIdParam, filterGroups])
 
+    const handleShare = () => {
+        const url = new URL(window.location.href)
+        url.searchParams.set("admin", searchQuery)
+        const shareUrl = url.toString()
+
+        navigator.clipboard
+            .writeText(shareUrl)
+            .then(() => {
+                alert("Copied to clipboard")
+            })
+            .catch(() => {
+                alert("Failed to copy to clipboard")
+            })
+    }
+
     return loading ? (
         <div className="flex justify-center items-center h-screen">
             <div className="loader" />
@@ -66,12 +82,23 @@ export default function Network() {
     ) : (
         allGroups && (
             <div className="mx-auto max-w-7xl px-4 lg:px-8 pt-20">
-                <SearchBar
-                    className="mb-6"
-                    placeholder="Group ID, Admin"
-                    onChange={filterGroups}
-                    queryParam={queryParam}
-                />
+                <div className="flex mb-6 gap-4">
+                    <SearchBar
+                        className="flex-1 mt-0"
+                        placeholder="Group ID, Admin"
+                        onChange={filterGroups}
+                        queryParam={queryParam}
+                        setSearchQuery={setSearchQuery}
+                    />
+                    <button
+                        type="button"
+                        className="flex bg-blue-950 text-white items-center justify-center px-4 rounded-md"
+                        onClick={handleShare}
+                        disabled={searchQuery.length === 0}
+                    >
+                        Share
+                    </button>
+                </div>
 
                 <div className="flex justify-center flex-col pb-10 font-[family-name:var(--font-geist-sans)]">
                     <ul className="divide-y divide-gray-300 min-w-xl">

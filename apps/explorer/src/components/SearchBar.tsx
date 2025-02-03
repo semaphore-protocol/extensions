@@ -3,7 +3,21 @@
 import { FaSearch } from "react-icons/fa"
 import { useState, useEffect, ChangeEvent } from "react"
 
-export default function SearchBar({ placeholder, onChange, className, queryParam }: any) {
+interface ISearchBarProps {
+    placeholder: string
+    onChange: (value: string) => void
+    className: string
+    queryParam: string | null
+    setSearchQuery?: React.Dispatch<React.SetStateAction<string>>
+}
+
+export default function SearchBar({
+    placeholder,
+    onChange,
+    className,
+    queryParam,
+    setSearchQuery: setSearchQueryParent
+}: ISearchBarProps) {
     const [searchQuery, setSearchQuery] = useState("")
     useEffect(() => {
         if (queryParam) {
@@ -14,6 +28,7 @@ export default function SearchBar({ placeholder, onChange, className, queryParam
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { value } = event.target
         setSearchQuery(value)
+        if (setSearchQueryParent) setSearchQueryParent(value)
         onChange(value)
     }
 
