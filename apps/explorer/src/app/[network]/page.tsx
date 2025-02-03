@@ -68,10 +68,10 @@ export default function Network() {
         navigator.clipboard
             .writeText(shareUrl)
             .then(() => {
-                alert("Copied to clipboard")
+                // alert("Copied to clipboard")
             })
             .catch(() => {
-                alert("Failed to copy to clipboard")
+                // alert("Failed to copy to clipboard")
             })
     }
 
