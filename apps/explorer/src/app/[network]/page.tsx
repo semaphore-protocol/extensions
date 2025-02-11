@@ -60,7 +60,7 @@ export default function Network() {
     }, [adminParam, groupIdParam, filterGroups])
 
     const handleShare = () => {
-        const url = `${window.location.origin}${window.location.pathname}?admin=${queryParam}`
+        const url = window.location.href
 
         navigator.clipboard.writeText(url)
     }
