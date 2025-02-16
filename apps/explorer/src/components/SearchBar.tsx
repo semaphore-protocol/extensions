@@ -3,7 +3,14 @@
 import { FaSearch } from "react-icons/fa"
 import { useState, useEffect, ChangeEvent } from "react"
 
-export default function SearchBar({ placeholder, onChange, className, queryParam }: any) {
+interface ISearchBarProps {
+    placeholder: string
+    onChange: (value: string) => void
+    className?: string
+    queryParam?: string | null
+}
+
+export default function SearchBar({ placeholder, onChange, className, queryParam }: ISearchBarProps) {
     const [searchQuery, setSearchQuery] = useState("")
     useEffect(() => {
         if (queryParam) {
@@ -15,6 +22,14 @@ export default function SearchBar({ placeholder, onChange, className, queryParam
         const { value } = event.target
         setSearchQuery(value)
         onChange(value)
+        const url = new URL(window.location.href)
+        url.search = ""
+        if(value.startsWith("0x")) {
+            url.searchParams.set("admin", value)
+        } else {
+            url.searchParams.set("groupid", value)
+        }
+        window.history.pushState({}, "", url.toString())
     }
 
     return (

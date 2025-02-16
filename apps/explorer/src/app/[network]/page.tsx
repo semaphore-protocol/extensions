@@ -59,6 +59,12 @@ export default function Network() {
         filterGroups(adminParam || groupIdParam || "")
     }, [adminParam, groupIdParam, filterGroups])
 
+    const handleShare = () => {
+        const url = window.location.href
+
+        navigator.clipboard.writeText(url)
+    }
+
     return loading ? (
         <div className="flex justify-center items-center h-screen">
             <div className="loader" />
@@ -66,12 +72,21 @@ export default function Network() {
     ) : (
         allGroups && (
             <div className="mx-auto max-w-7xl px-4 lg:px-8 pt-20">
-                <SearchBar
-                    className="mb-6"
-                    placeholder="Group ID, Admin"
-                    onChange={filterGroups}
-                    queryParam={queryParam}
-                />
+                <div className="flex mb-6 gap-4">
+                    <SearchBar
+                        className="!mt-0 flex-1"
+                        placeholder="Group ID, Admin"
+                        onChange={filterGroups}
+                        queryParam={queryParam}
+                    />
+                    <button
+                        type="button"
+                        className="flex bg-blue-950 text-white items-center justify-center px-4 rounded-md"
+                        onClick={handleShare}
+                    >
+                        Copy Link
+                    </button>
+                </div>
 
                 <div className="flex justify-center flex-col pb-10 font-[family-name:var(--font-geist-sans)]">
                     <ul className="divide-y divide-gray-300 min-w-xl">
