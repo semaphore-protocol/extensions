@@ -24,7 +24,7 @@ export default function SearchBar({ placeholder, onChange, className, queryParam
         onChange(value)
         const url = new URL(window.location.href)
         url.search = ""
-        if(value.startsWith("0x")) {
+        if (value.startsWith("0x")) {
             url.searchParams.set("admin", value)
         } else {
             url.searchParams.set("groupid", value)
