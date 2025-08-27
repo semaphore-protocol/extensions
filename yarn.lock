@@ -4161,14 +4161,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@semaphore-protocol/core@npm:4.10.0":
-  version: 4.10.0
-  resolution: "@semaphore-protocol/core@npm:4.10.0"
+"@semaphore-protocol/core@npm:4.13.0":
+  version: 4.13.0
+  resolution: "@semaphore-protocol/core@npm:4.13.0"
   dependencies:
-    "@semaphore-protocol/group": "npm:4.10.0"
-    "@semaphore-protocol/identity": "npm:4.10.0"
-    "@semaphore-protocol/proof": "npm:4.10.0"
-  checksum: 10/33b2e354beba61c3cb4763eecb93e2c2e758e6b8e747e4e82de04d276f9169792295e3749a7eda0d8b9b6cb4e13200afdbfbe3953982b2ea3d9b5f875514f53f
+    "@semaphore-protocol/group": "npm:4.13.0"
+    "@semaphore-protocol/identity": "npm:4.13.0"
+    "@semaphore-protocol/proof": "npm:4.13.0"
+  checksum: 10/2aba46efa06c0fd7b42c9bea219149a8bd457047538fda9c61d6e3574b91d3094346c907771ef4a92ff9a877e7b10c6276fc93005d6e681f01f23824e31640f9
   languageName: node
   linkType: hard
 
@@ -4206,14 +4206,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@semaphore-protocol/group@npm:4.10.0":
-  version: 4.10.0
-  resolution: "@semaphore-protocol/group@npm:4.10.0"
+"@semaphore-protocol/group@npm:4.13.0":
+  version: 4.13.0
+  resolution: "@semaphore-protocol/group@npm:4.13.0"
   dependencies:
-    "@zk-kit/lean-imt": "npm:2.2.3"
+    "@zk-kit/lean-imt": "npm:2.2.4"
     "@zk-kit/utils": "npm:1.3.0"
     poseidon-lite: "npm:0.3.0"
-  checksum: 10/c1c109a899d47cf8fa1cca9c39e88562efccad7ddbddb209de970de00e5ac1f3a326762972ac7c9e8c716846cf527f11100fb92f39a311622ba7bb0936309ba2
+  checksum: 10/8f79aaa27cba860ccae54882c939d3cc760a0df196814a27f37d93ebf7f0155a8edb0d524b576d808a890a08828cdbe3d118d072fa5662064ab9641d77bacb65
   languageName: node
   linkType: hard
 
@@ -4268,15 +4268,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@semaphore-protocol/identity@npm:4.10.0":
-  version: 4.10.0
-  resolution: "@semaphore-protocol/identity@npm:4.10.0"
+"@semaphore-protocol/identity@npm:4.13.0":
+  version: 4.13.0
+  resolution: "@semaphore-protocol/identity@npm:4.13.0"
   dependencies:
     "@zk-kit/baby-jubjub": "npm:1.0.3"
     "@zk-kit/eddsa-poseidon": "npm:1.0.4"
     "@zk-kit/utils": "npm:1.3.0"
     poseidon-lite: "npm:0.3.0"
-  checksum: 10/558e26da205920e1086e1ef607ed20856566b542111604cdfa90be0755f4e3c796c05a22f334fb84f9b92373a86d3932af473e211ddeacece7b60d98723c8952
+  checksum: 10/fa84fe25bfd578bc526c63d4883f8f9d878522e7815ca3b408227a8962f245c194d23f40bceeb564167c267720a11e73fe32859a8d4c5a95cce30f19cb9b4c32
   languageName: node
   linkType: hard
 
@@ -4313,19 +4313,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@semaphore-protocol/proof@npm:4.10.0":
-  version: 4.10.0
-  resolution: "@semaphore-protocol/proof@npm:4.10.0"
+"@semaphore-protocol/proof@npm:4.13.0":
+  version: 4.13.0
+  resolution: "@semaphore-protocol/proof@npm:4.13.0"
   dependencies:
-    "@semaphore-protocol/utils": "npm:4.10.0"
-    "@zk-kit/artifacts": "npm:1.8.0"
+    "@semaphore-protocol/utils": "npm:4.13.0"
+    "@zk-kit/artifacts": "npm:2.0.1"
     "@zk-kit/utils": "npm:1.3.0"
     ethers: "npm:6.13.4"
-    snarkjs: "npm:0.7.4"
+    snarkjs: "npm:0.7.5"
   peerDependencies:
-    "@semaphore-protocol/group": 4.10.0
-    "@semaphore-protocol/identity": 4.10.0
-  checksum: 10/88011496720ba7f6852c7ed98d523439de7871994d35ffead22324e256a3f78926ee3d2c0139ce7b47c387ba16c15fd9666b25ad71fe3836378e9faa7f6f9cce
+    "@semaphore-protocol/group": 4.13.0
+    "@semaphore-protocol/identity": 4.13.0
+  checksum: 10/6e132df49d4b27ef5ea77a20e2772407041d4c4b7b311e6fa4a574b01c1a764b56dcec898746271a0ea95e46bead369b5e7e3dc92c69c674ded8b00b5e5355b8
   languageName: node
   linkType: hard
 
@@ -4344,6 +4344,15 @@ __metadata:
   dependencies:
     ethers: "npm:^6.13.4"
   checksum: 10/ba1545d2ecdee769ed3cbdd9b8da8bef588f8975390b934bb1e16d704ab4ddc9fe02f170aba7a8deb6eb855fead3b64aa2ce7aa196e6f83fb5b333b35a83260c
+  languageName: node
+  linkType: hard
+
+"@semaphore-protocol/utils@npm:4.13.0":
+  version: 4.13.0
+  resolution: "@semaphore-protocol/utils@npm:4.13.0"
+  dependencies:
+    ethers: "npm:^6.13.4"
+  checksum: 10/35bf406f0c098b07c1530035c7e13e5bcac1ad91c6bdf09f60eaf3aa155e641815c95bcc9bcbf8773e99ba31752d101376ec4a7312d348b3f1cc061b41fa2be0
   languageName: node
   linkType: hard
 
@@ -5656,12 +5665,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@zk-kit/lean-imt@npm:2.2.3":
-  version: 2.2.3
-  resolution: "@zk-kit/lean-imt@npm:2.2.3"
+"@zk-kit/lean-imt@npm:2.2.4":
+  version: 2.2.4
+  resolution: "@zk-kit/lean-imt@npm:2.2.4"
   dependencies:
-    "@zk-kit/utils": "npm:1.3.0"
-  checksum: 10/a651d9d3030a91f77d9fe3d781383776f9189d2f2d8d4d27b1692e6ea5522f7b81d6baeae2fbd6c41878bc66700ab358074bbd9d5bac109d4114138066312a05
+    "@zk-kit/utils": "npm:1.4.1"
+  checksum: 10/032f30b62e561a6bd1e1bf8ad79ead6a0a4c80f0182361d8ff3d19a7818b3c2569831be3712fb9ec9f96c18bdc35c226511481f64bec57057765f7b6a87b3e9f
   languageName: node
   linkType: hard
 
@@ -5734,6 +5743,16 @@ __metadata:
   dependencies:
     buffer: "npm:^6.0.3"
   checksum: 10/cfeb48687486034250f2878db115a54b02d3dca8a10d372e861bc6825e23dc1add5497e512adf4ed39706c62f4841384e138db1fbec3320af87deeabaf428063
+  languageName: node
+  linkType: hard
+
+"@zk-kit/utils@npm:1.4.1":
+  version: 1.4.1
+  resolution: "@zk-kit/utils@npm:1.4.1"
+  dependencies:
+    buffer: "npm:^6.0.3"
+    ethers: "npm:6.13.5"
+  checksum: 10/8646a5fedda24d9175f1c663c3346d4d15169367134977de61035445a3122d54eb9c1521887ee4be2e1c319e4d0ba8a6b6e81c6148738099ca482b2c9b188325
   languageName: node
   linkType: hard
 
@@ -6472,7 +6491,7 @@ __metadata:
     "@emotion/react": "npm:^11.11.0"
     "@emotion/styled": "npm:^11.11.0"
     "@esbuild-plugins/node-globals-polyfill": "npm:^0.2.3"
-    "@semaphore-protocol/core": "npm:4.10.0"
+    "@semaphore-protocol/core": "npm:4.13.0"
     "@semaphore-protocol/group": "npm:3.15.2"
     "@semaphore-protocol/identity": "npm:3.15.2"
     "@semaphore-protocol/proof": "npm:3.15.2"
@@ -7210,6 +7229,17 @@ __metadata:
   bin:
     calcwit: calcwit.js
   checksum: 10/aebb1398df621524a84b4c067661943d8d42894856f4947f61f4768954f1143c9fbba76c3a7e9d805175b94e1ac997accbe46fbf67d08ff618062dfcec2737b1
+  languageName: node
+  linkType: hard
+
+"circom_runtime@npm:0.1.28":
+  version: 0.1.28
+  resolution: "circom_runtime@npm:0.1.28"
+  dependencies:
+    ffjavascript: "npm:0.3.1"
+  bin:
+    calcwit: calcwit.js
+  checksum: 10/c2ee10286c4e43c875ae3ba677f0f8df58016ab56ae8073fd82f382af6aa601b942036ef6f785f8614667a6323047ccac62c3e11bf41dbe56588e035233971ca
   languageName: node
   linkType: hard
 
@@ -9201,6 +9231,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ethers@npm:6.13.5, ethers@npm:^6.13.4":
+  version: 6.13.5
+  resolution: "ethers@npm:6.13.5"
+  dependencies:
+    "@adraffy/ens-normalize": "npm:1.10.1"
+    "@noble/curves": "npm:1.2.0"
+    "@noble/hashes": "npm:1.3.2"
+    "@types/node": "npm:22.7.5"
+    aes-js: "npm:4.0.0-beta.5"
+    tslib: "npm:2.7.0"
+    ws: "npm:8.17.1"
+  checksum: 10/ccba21a83679fb6a7c3eb9d187593501565d140064f2db28057a64d6707678bacf2adf4555882c4814688246da73173560df81fd3361fd2f227b5d3c75cb8685
+  languageName: node
+  linkType: hard
+
 "ethers@npm:^5.7.2":
   version: 5.7.2
   resolution: "ethers@npm:5.7.2"
@@ -9251,21 +9296,6 @@ __metadata:
     tslib: "npm:2.4.0"
     ws: "npm:8.5.0"
   checksum: 10/2995766164292b531499764d319d753b1f4e1cd7ddb4f26c6557a26e42947d5642a4b3bbeace0b8bb398b909dc22fafa4f52d5190a9bb8180bebf2dd3d4d48a9
-  languageName: node
-  linkType: hard
-
-"ethers@npm:^6.13.4":
-  version: 6.13.5
-  resolution: "ethers@npm:6.13.5"
-  dependencies:
-    "@adraffy/ens-normalize": "npm:1.10.1"
-    "@noble/curves": "npm:1.2.0"
-    "@noble/hashes": "npm:1.3.2"
-    "@types/node": "npm:22.7.5"
-    aes-js: "npm:4.0.0-beta.5"
-    tslib: "npm:2.7.0"
-    ws: "npm:8.17.1"
-  checksum: 10/ccba21a83679fb6a7c3eb9d187593501565d140064f2db28057a64d6707678bacf2adf4555882c4814688246da73173560df81fd3361fd2f227b5d3c75cb8685
   languageName: node
   linkType: hard
 
@@ -9523,6 +9553,17 @@ __metadata:
     wasmcurves: "npm:0.2.2"
     web-worker: "npm:1.2.0"
   checksum: 10/8478f3f3380b6195cf4994f9998e40a05780caa10b31bf67ba87ed294811ada6cb376deb58ce63d7fa124a828350a4c3530a6550545231872d7bd4e5e9f09f2f
+  languageName: node
+  linkType: hard
+
+"ffjavascript@npm:0.3.1":
+  version: 0.3.1
+  resolution: "ffjavascript@npm:0.3.1"
+  dependencies:
+    wasmbuilder: "npm:0.0.16"
+    wasmcurves: "npm:0.2.2"
+    web-worker: "npm:1.2.0"
+  checksum: 10/6b1a82a872cc80638b5e42c167817a88599940938eec80107dc45fb07ff0407cefc6d019c533e2b544e6ebce2fb1a94709cf39228b5fe9de80b750a9cc23ac8b
   languageName: node
   linkType: hard
 
@@ -15097,6 +15138,26 @@ __metadata:
   bin:
     snarkjs: build/cli.cjs
   checksum: 10/aaebcf57e11a36dc1ea77742a5062d67fcaa24bad37bc6532d9aaefc71ad302c4a65bd05cabb6ac893f3329e09f193d9cbd2a20053f8d5074e3864d933323e05
+  languageName: node
+  linkType: hard
+
+"snarkjs@npm:0.7.5":
+  version: 0.7.5
+  resolution: "snarkjs@npm:0.7.5"
+  dependencies:
+    "@iden3/binfileutils": "npm:0.0.12"
+    bfj: "npm:^7.0.2"
+    blake2b-wasm: "npm:^2.4.0"
+    circom_runtime: "npm:0.1.28"
+    ejs: "npm:^3.1.6"
+    fastfile: "npm:0.0.20"
+    ffjavascript: "npm:0.3.1"
+    js-sha3: "npm:^0.8.0"
+    logplease: "npm:^1.2.15"
+    r1csfile: "npm:0.0.48"
+  bin:
+    snarkjs: build/cli.cjs
+  checksum: 10/82f963e39ce77faa07a8d87390b38a9e709f5bd5db0f3893d97a4567870dc15dfad12a266963000d2bd4974732e666631e752492c1379eaf7796e27ea957e3db
   languageName: node
   linkType: hard
 
