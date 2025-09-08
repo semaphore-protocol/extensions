@@ -17,6 +17,6 @@
         "access": "public"
     },
     "dependencies": {
-        "@semaphore-protocol/contracts": "4.0.1"
+        "@semaphore-protocol/contracts": "4.13.1"
     }
 }
