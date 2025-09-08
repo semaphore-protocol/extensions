@@ -9,8 +9,8 @@
     },
     "dependencies": {
         "@headlessui/react": "^2.1.10",
-        "@semaphore-protocol/data": "4.10.0",
-        "@semaphore-protocol/utils": "4.10.0",
+        "@semaphore-protocol/data": "4.13.1",
+        "@semaphore-protocol/utils": "4.13.1",
         "next": "14.2.14",
         "react": "^18",
         "react-dom": "^18",
